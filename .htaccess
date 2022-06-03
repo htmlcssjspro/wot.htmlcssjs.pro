@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    DirectoryIndex /public/index.php
+    RewriteEngine On
+    RewriteBase /
+    # Перенаправление всех запросов в папку public
+    RewriteRule ^(.*)$ public/$1 [L]
+
+</IfModule>
