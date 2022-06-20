@@ -1,0 +1,49 @@
+@use '@/config/colors';
+
+@use '@/common/flex';
+@use '@/common/text';
+
+.filter {
+    &__title {
+        @extend .t20;
+        @extend %fw-500;
+        margin-top: 1em;
+
+        // &::after {
+        //     content: '-';
+        // }
+        // &.closed::after {
+        //     content: '+';
+        // }
+    }
+
+    &__wrapper {
+        margin: 1em 0;
+        gap: 0.5em;
+
+        @at-root .filter__section_nation & {
+            // grid
+        }
+        @at-root .filter__section_level & {
+            @extend %flex-sb-c;
+            flex-flow: row wrap;
+            .checkbox {
+                flex: 1 0 17%;
+            }
+        }
+        @at-root .filter__section_v-type & {
+            @extend %flex-sb-c;
+        }
+    }
+
+    &__checkbox {
+        padding: 0.5em;
+        color: colors.$checkbox;
+        background-color: colors.$checkbox-bg;
+    }
+
+    &__submit {
+        margin-top: 3.5rem;
+        margin-bottom: 2.5rem;
+    }
+}

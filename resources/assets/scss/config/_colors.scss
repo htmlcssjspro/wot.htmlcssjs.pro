@@ -1,0 +1,131 @@
+@use 'sass:color';
+
+//* Colors
+
+// bootstrap colors
+
+$grey-100: hsl(210, 17%, 98%) !default;
+$grey-200: hsl(210, 16%, 93%) !default;
+$grey-300: hsl(210, 14%, 89%) !default;
+$grey-400: hsl(210, 14%, 83%) !default;
+$grey-500: hsl(210, 11%, 71%) !default;
+$grey-600: hsl(208, 7%, 46%) !default;
+$grey-700: hsl(210, 9%, 31%) !default;
+$grey-800: hsl(210, 10%, 23%) !default;
+$grey-900: hsl(210, 11%, 15%) !default;
+
+$blue: hsl(211, 100%, 50%) !default;
+$indigo: hsl(263, 90%, 51%) !default;
+$purple: hsl(261, 51%, 51%) !default;
+$pink: hsl(332, 79%, 58%) !default;
+$red: hsl(354, 70%, 54%) !default;
+$orange: hsl(27, 98%, 54%) !default;
+$yellow: hsl(45, 100%, 51%) !default;
+$green: hsl(134, 61%, 41%) !default;
+$teal: hsl(162, 73%, 46%) !default;
+$cyan: hsl(188, 78%, 41%) !default;
+
+// my colors
+
+$grey-100: hsl(210, 17%, 98%);
+$grey-200: hsl(210, 16%, 93%);
+$grey-300: hsl(210, 14%, 89%);
+$grey-400: hsl(210, 14%, 83%);
+$grey-500: hsl(210, 11%, 71%);
+$grey-600: hsl(210, 7%, 46%);
+$grey-700: hsl(210, 9%, 31%);
+$grey-800: hsl(210, 10%, 23%);
+$grey-900: hsl(210, 11%, 15%);
+
+$blue: hsl(211, 100%, 50%);
+$indigo: hsl(263, 90%, 51%);
+$purple: hsl(261, 51%, 51%);
+$pink: hsl(332, 79%, 58%);
+$red: hsl(354, 70%, 54%);
+$orange: hsl(27, 98%, 54%);
+$yellow: hsl(45, 100%, 51%);
+$green: hsl(134, 61%, 41%);
+$teal: hsl(162, 73%, 46%);
+$cyan: hsl(188, 78%, 41%);
+
+$dark: $grey-700 !default;
+$light: $grey-300 !default;
+
+$info: $cyan !default;
+$success: $green !default;
+$warning: $yellow !default;
+$danger: $red !default;
+
+$pure-white: hsl(0, 0%, 100%);
+$pure-black: hsl(0, 0%, 0%);
+
+$white: $grey-100;
+$black: $grey-900;
+
+//* theme colors
+
+$primary: hsla(25, 100%, 65%, 1);
+$secondary: hsla(50, 12%, 10%, 1);
+$grey: hsla(47, 10%, 17%, 1);
+
+$text-color: $pure-white;
+$text: $text-color;
+$text-gray: $grey;
+$text-disabled: color.change($text, $alpha: 0.4);
+
+$button-color: $secondary;
+$button: $button-color;
+$button-active: $button-color;
+$button-bg: $primary;
+$button-bg-disabled: color.grayscale($button-bg);
+
+$checkbox-color: $secondary;
+$checkbox: $checkbox-color;
+$checkbox-active: $checkbox-color;
+$checkbox-bg: hsla(0, 0%, 85%, 1);
+$checkbox-bg-disabled: color.grayscale($checkbox-bg);
+
+$bg-main: $secondary;
+$bg-section: $grey;
+
+$scrollbar-track: hsla(47, 2%, 31%, 1);
+$scrollbar-thumb: $primary;
+
+//* necessary colors for JS
+:root {
+    --color-primary: #{$primary};
+    --color-text: #{$text};
+    --color-bg-main: #{$bg-main};
+    --color-bg-section: #{$bg-section};
+
+    // --swiper-theme-color: #{$primary};
+}
+
+/*
+color.adjust($color,
+    $red: null, $green: null, $blue: null,
+    $hue: null, $saturation: null, $lightness: null,
+    $whiteness: null, $blackness: null,
+    $alpha: null)
+adjust-color(...) //=> color
+ */
+
+// @use 'sass:color';
+
+// $color: hsla(120, 100%, 50%, 0.5);
+/*
+$color: hsla(
+    $hue: 120,
+    $saturation: 100%,
+    $lightness: 50%,
+    $alpha: 0.5,
+);
+ */
+/*
+color.adjust($color, params); // изменяет параметры на определенную величину
+color.scale($color, params); // изменяет параметры на определенную величину относительно текущего значения
+color.change($color, params); // устанавливает переданные параметры
+color.complement($color);
+color.invert($color);
+color.grayscale($color);
+ */

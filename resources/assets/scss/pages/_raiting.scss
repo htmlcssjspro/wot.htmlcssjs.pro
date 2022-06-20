@@ -1,0 +1,62 @@
+@use '@/config/viewport';
+@use '@/config/colors';
+
+@use '@/common/indent';
+@use '@/common/text';
+
+@use '@/components/wot/table';
+
+.raiting.main {
+    font-size: 2rem;
+
+    .main__top {
+        @extend %wrapper;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .main__wrapper {
+        max-width: 1200px;
+    }
+
+    .table {
+        background-color: colors.$bg-section;
+    }
+
+    .table-body-scroll {
+        max-height: 50rem;
+    }
+
+    table {
+        width: 100%;
+
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 10%;
+        }
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 50%;
+        }
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 20%;
+        }
+
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 20%;
+        }
+
+        th,
+        td {
+            @extend .p-cell;
+            @extend .ta-c;
+            text-align: center;
+        }
+    }
+}

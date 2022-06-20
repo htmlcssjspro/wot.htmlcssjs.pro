@@ -37,9 +37,6 @@
     "url": "https://github.com/htmlcssjspro/wot.htmlcssjs.pro/issues"
   },
   "license": "MIT",
-  "browserslist": [
-    "defaults"
-  ],
   "dependencies": {
     "swiper": "^8.2.2"
   }

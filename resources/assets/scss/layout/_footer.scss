@@ -1,0 +1,38 @@
+@use '@/config';
+@use '@/config/viewport';
+@use '@/config/colors';
+@use '@/common/flex';
+@use '@/components/logo';
+
+.footer {
+    & {
+        @extend %container;
+        @extend %container-last;
+        margin-top: viewport.$gap;
+        background-color: colors.$bg-section;
+    }
+
+    &__wrapper {
+        @extend %wrapper;
+    }
+
+    &__btn {
+        background-color: colors.$primary;
+    }
+
+    .navbar {
+        @extend %flex-row-sb-c;
+        padding: 33px 0 38px;
+        font-size: 1.4rem;
+
+        &__item:first-child {
+            margin-bottom: 1em;
+        }
+        &__group {
+        }
+    }
+
+    .social {
+        @extend %flex-row-sb-c;
+    }
+}

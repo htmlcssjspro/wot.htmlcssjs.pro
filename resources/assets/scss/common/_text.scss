@@ -1,0 +1,130 @@
+%text-align,
+%ta {
+    &-left,
+    &-l {
+        text-align: left;
+    }
+
+    &-center,
+    &-c {
+        text-align: center;
+    }
+
+    &-right,
+    &-r {
+        text-align: right;
+    }
+}
+.ta {
+    &-l {
+        @extend %ta-l;
+    }
+    &-c {
+        @extend %ta-c;
+    }
+    &-r {
+        @extend %ta-r;
+    }
+}
+
+%vertical-align,
+%va {
+    &-middle,
+    &-m {
+        vertical-align: middle;
+    }
+}
+
+.va {
+    &-m {
+        @extend %va-m;
+    }
+}
+
+%text-transform,
+%tt {
+    &-uppercase,
+    &-uc {
+        text-transform: uppercase;
+    }
+    &-lowercase,
+    &-lc {
+        text-transform: lowercase;
+    }
+    &-capitalize,
+    &-cp {
+        text-transform: capitalize;
+    }
+}
+
+.tt {
+    &-uc {
+        @extend %text-transform-uppercase;
+    }
+    &-lc {
+        @extend %text-transform-lowercase;
+    }
+    &-cp {
+        @extend %text-transform-capitalize;
+    }
+}
+
+.t60,
+.fs-60 {
+    font-size: 6rem;
+}
+.t30,
+.fs-30 {
+    font-size: 3rem;
+}
+.t26,
+.fs-26 {
+    font-size: 2.6rem;
+}
+.t20,
+.fs-20 {
+    font-size: 2rem;
+}
+.t18,
+.fs-18 {
+    font-size: 1.8rem;
+}
+.t16,
+.fs-16 {
+    font-size: 1.6rem;
+}
+.t14,
+.fs-14 {
+    font-size: 1.4rem;
+}
+.t12,
+.fs-12 {
+    font-size: 1.2rem;
+}
+
+%font-weight,
+%fw {
+    &-4,
+    &-400 {
+        font-weight: 400;
+    }
+    &-5,
+    &-500 {
+        font-weight: 500;
+    }
+    &-7,
+    &-700 {
+        font-weight: 700;
+    }
+}
+.fw {
+    &-4 {
+        @extend %font-weight-400;
+    }
+    &-5 {
+        @extend %font-weight-500;
+    }
+    &-7 {
+        @extend %font-weight-700;
+    }
+}

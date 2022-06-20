@@ -1,0 +1,14 @@
+@use '@/config/colors';
+
+@use '@/components/article';
+
+.article {
+    $gap: 2rem;
+
+    &__wrapper {
+        max-width: 345px;
+        min-height: 255px;
+        padding: $gap;
+        background-color: colors.$bg-section;
+    }
+}

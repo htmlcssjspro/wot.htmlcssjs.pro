@@ -1,0 +1,125 @@
+@use '@/config/colors';
+
+@use '@/common/flex';
+
+@use '@/icons/svg-icons';
+
+.dropdown {
+    position: relative;
+
+    &__toggle {
+        cursor: pointer;
+    }
+
+    &__content {
+        &.show {
+            display: unset;
+        }
+    }
+}
+
+.dropdown-filter {
+    position: relative;
+
+    &__toggle {
+        @extend %flex-sb-c;
+        cursor: pointer;
+        &::after {
+            @extend %svg-icon-after;
+            @extend %svg-minus;
+            display: block;
+        }
+        &.hide {
+            &::after {
+                @extend %svg-plus;
+            }
+        }
+    }
+
+    &__content {
+        &.hide {
+            position: absolute;
+            visibility: hidden;
+        }
+    }
+}
+
+.dropdown-menu {
+    position: relative;
+
+    &__toggle {
+        cursor: pointer;
+    }
+
+    &__menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0.125rem;
+        color: #dee2e6;
+        background-color: #343a40;
+
+        z-index: 1000;
+        min-width: 10rem;
+        margin: 0;
+        padding: 0.5rem 0;
+        font-size: 1em;
+        text-align: left;
+        background-clip: padding-box;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 0.25rem;
+
+        &.show {
+            display: block;
+        }
+    }
+
+    &__item {
+        display: block;
+        width: 100%;
+        padding: 0.25rem 1rem;
+        white-space: nowrap;
+    }
+}
+
+%dropdown-nav {
+    & {
+        margin: 1em 0;
+    }
+
+    &__toggle {
+        cursor: pointer;
+    }
+
+    &__content {
+        font-size: inherit;
+    }
+}
+
+%dropdown-hover {
+    $dropdown-hov: &;
+
+    & {
+        position: relative;
+    }
+
+    & > span {
+        // font-size: 1.8rem;
+        // font-weight: bolder;
+        display: inline-block;
+        border-bottom: 1px dashed colors.$text;
+        cursor: pointer;
+    }
+
+    & > div {
+        position: absolute;
+        display: none;
+        // @extend %box-shadow;
+        background: colors.$white;
+    }
+
+    &:hover > div {
+        display: block;
+    }
+}

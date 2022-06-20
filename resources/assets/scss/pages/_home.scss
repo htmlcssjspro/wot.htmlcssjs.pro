@@ -1,0 +1,223 @@
+@use '@/config';
+@use '@/config/viewport';
+@use '@/config/colors';
+
+@use '@/common/flex';
+@use '@/common/grid';
+@use '@/common/text';
+
+@use '@/components/wot/article';
+@use '@/components/wot/button';
+@use '@/components/wot/checkbox';
+@use '@/components/wot/double-range';
+@use '@/components/wot/dropdown';
+@use '@/components/wot/filter-tag';
+@use '@/components/wot/flag';
+
+@use '@/icons/gold';
+
+.container {
+    margin-bottom: viewport.$gap;
+}
+
+.home.container {
+    margin-top: viewport.$gap;
+
+    & > .container__wrapper.grid {
+        @include grid.grid {
+            gap: 20px;
+            grid-template: 'aside main' 1fr / 345px 1fr;
+        }
+    }
+}
+
+.home.aside {
+    font-size: 1.2rem;
+    max-width: 345px;
+    background-color: colors.$bg-section;
+
+    .aside__top {
+        @extend %flex-sb-c;
+        @extend .t20;
+        margin-bottom: 1em;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid colors.$text;
+
+        button {
+            padding-right: 0;
+            &[disabled] {
+                color: colors.$text-disabled;
+            }
+        }
+    }
+
+    .aside__wrapper {
+        padding: 0 2rem;
+    }
+
+    fieldset {
+        margin: 1em 0;
+
+        legend {
+            @extend .t20;
+            @extend %fw-500;
+            margin-bottom: 0.6em;
+        }
+    }
+
+    .checkbox {
+        margin: 0;
+
+        &__label {
+        }
+    }
+
+    .flex,
+    .grid {
+        gap: 0.5em;
+    }
+
+    .nation .dropdown-filter__content.grid {
+        grid-template: repeat(6, auto) / repeat(2, 1fr);
+        grid-auto-flow: column;
+    }
+
+    .level .dropdown-filter__content.flex {
+        @extend %flex-sb-c;
+        @extend %flex-ff-r-w;
+        // flex-flow: row wrap;
+        .checkbox {
+            flex: 1 0 17%;
+        }
+    }
+
+    .v-type .dropdown-filter__content.flex {
+        @extend %flex-sb-c;
+    }
+
+    .task-type,
+    .availability,
+    .cost,
+    .duration,
+    .prize,
+    .task-super {
+        .dropdown-filter__content.flex {
+            @extend %flex-ff-cl;
+        }
+    }
+
+    .form__submit {
+        margin-top: 3.5rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.home.main {
+    font-size: 1.2rem;
+
+    .main__wrapper.grid {
+        @include grid.grid {
+            gap: 61px 20px;
+            grid-template: repeat(5, auto) / repeat(3, minmax(auto, 345px));
+        }
+    }
+
+    .filters {
+        @extend %flex-ai-c;
+        // height: 53px;
+        padding: 2rem;
+        background-color: colors.$bg-section;
+
+        & > :first-child {
+            @extend .t20;
+            margin-right: 2em;
+        }
+
+        &__wrapper {
+            @extend %flex-ai-c;
+        }
+    }
+
+    .sorting {
+        @extend %flex-ai-c;
+        padding: 0.5em calc(2rem - 2em) 1rem;
+    }
+
+    .pagination {
+        @extend %flex-row-c;
+        gap: 2em;
+        margin: 6.5rem 0;
+        @extend .t20;
+        button {
+            background-color: transparent;
+        }
+
+        .prev,
+        .next {
+            width: 11px;
+            height: 19px;
+            padding: 0;
+        }
+        .prev {
+            @extend %svg-caret-left;
+        }
+        .next {
+            @extend %svg-caret-right;
+        }
+        .page {
+            // @extend %flex-c;
+            @extend %ta-c;
+            @extend %va-m;
+            width: 48px;
+            height: 45px;
+
+            &.active {
+                background-color: colors.$primary;
+            }
+        }
+    }
+}
+
+article.competition {
+    .competition__wrapper {
+        padding: 1.5rem 1rem;
+        color: colors.$text;
+        font-size: 1.2rem;
+        background-color: colors.$bg-section;
+    }
+
+    span {
+        display: unset;
+    }
+    header {
+        @extend %flex-row-sb-c;
+    }
+    h2 {
+        @extend .fs-20;
+        text-align: center;
+    }
+    ul {
+        margin-bottom: 1rem;
+    }
+    .prize {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    footer {
+        @extend %flex-row-sb-c;
+    }
+    button {
+        padding: 0.5em 10px;
+        font-size: 2rem;
+        background-color: colors.$primary;
+    }
+}
+
+.slider {
+    margin-top: 7.5rem;
+    margin-bottom: 7.5rem;
+
+    h2 {
+        font-size: 3rem;
+    }
+}

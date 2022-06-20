@@ -1,0 +1,48 @@
+.p {
+    &-0 {
+        padding: 0;
+    }
+    &-1 {
+        padding: 1em;
+    }
+    &-2 {
+        padding: 2em;
+    }
+}
+
+@mixin py($p) {
+    padding-top: $p;
+    padding-bottom: $p;
+}
+
+.py {
+    &-0 {
+        @include py(0);
+    }
+    &-1 {
+        @include py(1em);
+    }
+    &-2 {
+        @include py(2em);
+    }
+}
+
+@mixin px($p) {
+    padding-left: $p;
+    padding-right: $p;
+}
+.px {
+    &-0 {
+        @include px(0);
+    }
+    &-1 {
+        @include px(1em);
+    }
+    &-2 {
+        @include px(2em);
+    }
+}
+
+.p-cell {
+    padding: 0.5em 1em;
+}

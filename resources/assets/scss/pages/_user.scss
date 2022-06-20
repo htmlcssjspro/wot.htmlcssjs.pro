@@ -1,0 +1,173 @@
+@use '@/config/viewport';
+@use '@/config/colors';
+
+@use '@/common/flex';
+@use '@/common/text';
+@use '@/common/indent';
+
+@use '@/components/wot/marked';
+@use '@/components/wot/checkbox';
+
+.user.aside {
+    @extend .fs-20;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    nav {
+        @extend %flex-sb;
+    }
+
+    .nav {
+        @extend %flex-sb;
+    }
+
+    .btn_tab.active {
+        background-color: colors.$bg-section;
+    }
+
+    a.nav-link {
+        // padding: 0.5em 1em;
+        @extend .p-cell;
+        color: colors.$primary;
+    }
+}
+
+.user.main {
+    @extend .fs-20;
+
+    .main__wrapper {
+        padding: viewport.$gap;
+        background-color: colors.$bg-section;
+    }
+
+    .tab-content {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+
+    .grid {
+        gap: viewport.$gap;
+        grid-auto-flow: column;
+        grid-template: auto auto / repeat(5, minmax(180px, max-content));
+    }
+
+    .total {
+        @extend %flex-ai-c;
+        gap: 1em;
+        margin-bottom: viewport.$gap;
+    }
+
+    table {
+        @extend .fs-12;
+
+        tbody tr:nth-child(odd) {
+            background-color: colors.$bg-main;
+        }
+
+        th,
+        td {
+            @extend .p-cell;
+        }
+    }
+
+    .competition,
+    .referral {
+        & > .flex {
+            @extend %flex-sb-fs;
+
+            & > div {
+                flex: 1 1 50%;
+            }
+        }
+    }
+
+    .summary {
+    }
+
+    .competition {
+        .competition__active,
+        .competition__archive {
+            &.flex {
+                gap: 1em;
+                @extend %flex-col-fs-c;
+            }
+        }
+    }
+
+    .referral {
+        table {
+            width: 445px;
+        }
+        tr td:last-child {
+            width: 25%;
+        }
+    }
+}
+
+.buygold {
+    @extend .fs-20;
+
+    .main__top {
+        background-color: colors.$bg-section;
+        padding: viewport.$gap;
+
+        .flex {
+            @extend %flex-fs-fe;
+
+            div {
+                flex: 1 1;
+            }
+        }
+    }
+
+    .form {
+        input {
+            width: unset;
+            margin-bottom: 1em;
+            outline-color: colors.$primary;
+        }
+    }
+
+    .balance.flex {
+        gap: 1em;
+        @extend %flex-col-fe-fs;
+    }
+
+    .main__wrapper {
+        p {
+            max-width: 100rem;
+        }
+    }
+
+    .main__bottom {
+        &.flex {
+            gap: 2rem;
+            @extend %flex-sb-fs;
+        }
+
+        figure {
+            margin: 0;
+
+            figcaption {
+                margin-top: 1em;
+            }
+        }
+    }
+}
+
+.goldconfirmation {
+    @extend .fs-20;
+    background-color: colors.$bg-section;
+    padding: viewport.$gap;
+
+    span {
+        @extend .fs-60;
+        @extend .fw-5;
+        color: colors.$primary;
+    }
+
+    .main__wrapper {
+    }
+}

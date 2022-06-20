@@ -1,0 +1,12 @@
+// @use '@/config';
+// @use '@/config/viewport';
+// @use '@/common/flex';
+
+@use 'body';
+
+@use 'header';
+@use 'main';
+@use 'aside';
+@use 'footer';
+
+@use 'design-grid';

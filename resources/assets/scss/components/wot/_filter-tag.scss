@@ -1,0 +1,21 @@
+@use '@/config/colors';
+@use '@/common/flex';
+@use '@/icons/svg-icons';
+
+.filter-tag {
+    @extend %flex-ai-c;
+    gap: 0.5em;
+    // font-size: 1.2rem;
+    color: colors.$text-gray;
+    margin-right: 0.5em;
+    padding: 0 0.5em 0 1em;
+    border-radius: 1em;
+    background-color: colors.$primary;
+
+    .xmark {
+        @extend %svg-xmark;
+        width: 0.6em;
+        height: 0.6em;
+        padding: 0;
+    }
+}

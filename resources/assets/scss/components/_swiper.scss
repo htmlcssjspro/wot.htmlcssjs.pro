@@ -1,0 +1,19 @@
+@use '~swiper/css';
+@use '~swiper/css/navigation';
+@use '@/config/colors';
+
+.swiper {
+    --swiper-theme-color: #{colors.$primary};
+    --swiper-theme-color: var(--color-primary);
+
+    // --swiper-navigation-size: 44px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    // color: colors.$primary;
+}
+.swiper-button-prev {
+}
+.swiper-button-next {
+}

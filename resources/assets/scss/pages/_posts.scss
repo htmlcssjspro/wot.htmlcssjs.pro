@@ -1,0 +1,171 @@
+@use '@/config/viewport';
+@use '@/config/colors';
+
+@use '@/common/flex';
+@use '@/common/text';
+@use '@/common/indent';
+
+@use '@/icons/svg-icons';
+
+@use '@/components/wot/article';
+@use '@/components/wot/button';
+@use '@/components/wot/table';
+
+.posts.main {
+    @extend .fs-20;
+    .article__wrapper.flex {
+        gap: 1em;
+        @extend %flex-col-sb;
+    }
+}
+
+.post.main {
+    @extend .fs-20;
+    .main__top {
+        padding-top: 20rem;
+        background-color: colors.$bg-section;
+    }
+}
+
+.post-pagination,
+.post-more {
+    @extend .fs-20;
+    .flex {
+        gap: 2rem;
+        @extend %flex-sb;
+    }
+}
+
+.post-pagination {
+    @extend .fs-20;
+    .post-pagination__left {
+        .left {
+            @extend %svg-chevron-left-before;
+        }
+    }
+    .post-pagination__right {
+        .right {
+            @extend %svg-chevron-right-after;
+        }
+    }
+
+    &__social {
+        .social.flex {
+            gap: 1em;
+            @extend %flex-c;
+        }
+    }
+}
+
+.post-more {
+    @extend .fs-20;
+    &__block {
+        flex: 1 1;
+        min-height: 22rem;
+        background-color: colors.$bg-section;
+    }
+}
+
+.news.main {
+    &.posts {
+        .main__wrapper.grid {
+            gap: 2rem;
+            grid-template: auto / repeat(4, 1fr);
+        }
+
+        .news-item {
+        }
+    }
+
+    &.post {
+    }
+}
+
+.competition.main {
+    &.posts {
+        .news-item {
+        }
+    }
+
+    &.post {
+    }
+
+    h1,
+    h2 {
+        @extend .fs-30;
+    }
+
+    .main {
+        &__top {
+            &.flex {
+                gap: 1em;
+                @extend %flex-ai-c;
+            }
+        }
+
+        &__wrapper {
+            &.flex {
+                gap: viewport.$gap;
+                @extend %flex-sb-fs;
+
+                div:first-child {
+                    flex: 1 1;
+                }
+                div:last-child {
+                    flex: 0 1 345px;
+                }
+            }
+            .grid {
+                margin-top: viewport.$gap;
+                gap: 2rem;
+                grid-template: auto / repeat(3, 1fr);
+            }
+        }
+    }
+
+    .marked-block {
+        span:last-child {
+            @extend .fs-20;
+        }
+    }
+
+    .competition {
+        &__img,
+        &__results {
+            max-width: 375px;
+        }
+
+        &__img {
+        }
+
+        &__results {
+            .table {
+            }
+            .table-body-scroll {
+                max-height: 345px;
+            }
+            table {
+                width: 100%;
+            }
+            thead {
+                margin-bottom: 1em;
+            }
+            tbody tr:nth-child(odd) {
+                // background-color: colors.$bg-main;
+                background-color: colors.$bg-section;
+            }
+            tr {
+                th,
+                td {
+                    @extend .p-cell;
+                }
+                th {
+                    @extend .ta-l;
+                }
+                td:last-child {
+                    // width: 25%;
+                }
+            }
+        }
+    }
+}

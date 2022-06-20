@@ -1,0 +1,105 @@
+@use 'sass:color';
+
+@use '@/config/colors';
+@use '@/common/flex';
+@use '@/common/position';
+
+.checkbox,
+.radio {
+    @extend %pos-r;
+
+    input {
+        @extend %pos-a;
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        width: 0;
+    }
+    label {
+        @extend %flex-ai-c;
+        gap: 1em;
+        cursor: pointer;
+    }
+    & + button[type='submit'] {
+        margin-top: 2em;
+    }
+}
+
+.checkbox {
+    & + .checkbox {
+        margin-top: 1em;
+    }
+
+    label {
+        padding: 0.5em;
+        color: colors.$checkbox;
+        background-color: colors.$checkbox-bg;
+    }
+
+    input:checked + label {
+        background-color: colors.$primary;
+    }
+
+    // .checkmark:after {
+    //     left: 9px;
+    //     top: 5px;
+    //     width: 5px;
+    //     height: 10px;
+    //     border: solid white;
+    //     border-width: 0 3px 3px 0;
+    //     -webkit-transform: rotate(45deg);
+    //     -ms-transform: rotate(45deg);
+    //     transform: rotate(45deg);
+    // }
+
+    // &:hover input ~ .checkmark {
+    //     background-color: hsl(0, 0%, 70%);
+    // }
+
+    // input:checked ~ .checkmark {
+    //     background-color: colors.$primary;
+    // }
+
+    // input:checked ~ .checkmark:after {
+    //     display: block;
+    // }
+}
+
+.radio {
+    & + .radio {
+        margin-top: 1em;
+    }
+
+    label {
+        padding-left: 2.6em;
+
+        &::before,
+        &::after {
+            content: '';
+            @extend %pos-a;
+            left: 0;
+            width: 1.6em;
+            height: 1.6em;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+
+        &::before {
+            display: block;
+            background-color: colors.$secondary;
+        }
+        &::after {
+            display: none;
+            border: 0.3em solid colors.$secondary;
+            background-color: colors.$primary;
+        }
+    }
+
+    &:hover input + label::before {
+        background-color: color.scale(colors.$secondary, $lightness: 20%);
+    }
+
+    input:checked + label::after {
+        display: block;
+    }
+}

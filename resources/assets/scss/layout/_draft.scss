@@ -1,0 +1,58 @@
+@use '@/config';
+@use '@/config/viewport';
+@use '@/common/flex';
+
+@mixin aside {
+    @if config.$ASIDE and not config.$GRID {
+        @content;
+    }
+}
+@mixin no-aside {
+    @if not config.$ASIDE {
+        @content;
+    }
+}
+
+@include aside {
+    .content {
+        @extend %container;
+
+        &__wrapper {
+            @extend %wrapper;
+        }
+    }
+}
+
+.main {
+    @include aside {
+        //
+    }
+    @include no-aside {
+        @extend %container;
+    }
+
+    &__top,
+    &__bottom,
+    &__wrapper {
+        @include no-aside {
+            @extend %wrapper;
+        }
+    }
+}
+
+.aside {
+    @include aside {
+        //
+    }
+    @include no-aside {
+        @extend %container;
+    }
+
+    &__top,
+    &__bottom,
+    &__wrapper {
+        @include no-aside {
+            @extend %wrapper;
+        }
+    }
+}

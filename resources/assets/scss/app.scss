@@ -1,0 +1,25 @@
+//* Common
+@use 'common/normalize';
+@use 'layout';
+
+@use 'components/swiper';
+
+//* Pages
+@use 'pages/posts';
+
+@use 'pages/home';
+@use 'pages/admin';
+@use 'pages/user';
+@use 'pages/raiting';
+
+h1,
+h2 {
+    margin: 0;
+    padding: 1em 0;
+}
+h1 {
+    font-size: 6rem;
+}
+h2 {
+    font-size: 4rem;
+}

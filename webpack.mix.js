@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,20 +12,25 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'js')
-    .js('resources/assets/js/main.js', 'js');
+mix.disableNotifications();
+// mix.disableSuccessNotifications();
 
-mix.postCss('resources/assets/css/app.css', 'css', [
-    //
-]);
+mix.alias({
+    '$': path.join(__dirname, 'resources/assets/js'),
+    '@': path.join(__dirname, 'resources/assets/scss'),
+});
 
-mix.sass('resources/assets/scss/test.scss', 'css', [
-    //
-]);
+mix.webpackConfig({
+    target: ['web', 'es6']
+});
+
+mix.js('resources/assets/js/app.js', 'js');
+
+mix.sass('resources/assets/scss/app.scss', 'css', []);
+
+// mix.postCss('resources/assets/css/app-pure.css', 'css', []);
 
 mix.sourceMaps();
 mix.version();
 
-// if (mix.inProduction()) {
-//     mix.version();
-// }
+// mix.dump();

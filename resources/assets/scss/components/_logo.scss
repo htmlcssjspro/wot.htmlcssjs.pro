@@ -1,0 +1,18 @@
+@use '@/common/flex';
+
+$width: 100px !default;
+$height: 100px !default;
+// $url: '../img/logo/logo.png' !default;
+
+.logo {
+    width: 170px;
+    // background: url($url) center / contain no-repeat;
+    font-size: 3rem;
+    a {
+        @extend %flex-row-sb-c;
+    }
+    img {
+        width: 53px;
+        height: 53px;
+    }
+}

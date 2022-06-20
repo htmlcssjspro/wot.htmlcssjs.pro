@@ -1,0 +1,126 @@
+@use '@/common/flex';
+
+.double-range {
+    &__labels {
+        // font-size: 2rem;
+    }
+
+    &__inputs {
+        $track-thick: 6px;
+        $track-color: hsl(234, 100%, 65%);
+
+        $thumb-size: 20px;
+        $thumb-color: hsl(234, 100%, 65%);
+
+        $bg-thick: 6px;
+        $bg-color: hsl(0, 0%, 85%);
+
+        $rounded: false;
+
+        --thumb-size: #{$thumb-size};
+        --track-left: 0%;
+        --track-right: 0%;
+
+        @mixin br($br) {
+            @if $rounded {
+                border-radius: $br;
+            }
+        }
+
+        @extend %flex-col-c;
+
+        position: relative;
+        height: $thumb-size;
+        margin: $thumb-size 0;
+        padding: $thumb-size 0;
+        @include br($thumb-size);
+        background-color: transparent;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+
+            // top: 50%;
+            // transform: translateY(-50%);
+        }
+
+        &::before {
+            left: 3px;
+            right: 3px;
+
+            height: $bg-thick;
+            @include br($bg-thick);
+            background-color: $bg-color;
+        }
+
+        &::after {
+            left: var(--track-left);
+            right: var(--track-right);
+
+            height: $track-thick;
+            border-radius: $track-thick;
+            background-color: $track-color;
+        }
+
+        @mixin common {
+            appearance: none;
+            outline: none;
+            border: none;
+        }
+
+        input[type='range'] {
+            @include common();
+
+            position: absolute;
+            left: 0;
+            right: 0;
+
+            // top: 50%;
+            // transform: translateY(-50%);
+
+            display: block;
+            overflow: hidden;
+            width: 100%;
+            height: $thumb-size;
+            @include br($thumb-size);
+            margin: 0;
+            padding: 0;
+            pointer-events: all;
+            cursor: pointer;
+            background-color: transparent;
+
+            @mixin track {
+                @include common();
+                height: $thumb-size;
+                @include br($thumb-size);
+                background-color: transparent;
+            }
+
+            @mixin thumb {
+                @include common();
+                width: $thumb-size;
+                height: $thumb-size;
+                border-radius: 50%;
+                background-color: $thumb-color;
+            }
+
+            &::-webkit-slider-runnable-track {
+                @include track();
+            }
+            &::-webkit-slider-thumb {
+                @include thumb();
+            }
+
+            &::-moz-range-track {
+                @include track();
+            }
+            &::-moz-range-thumb {
+                @include thumb();
+            }
+            &::-moz-focus-outer {
+                border: 0;
+            }
+        }
+    }
+}

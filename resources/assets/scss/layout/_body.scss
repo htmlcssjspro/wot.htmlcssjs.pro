@@ -1,0 +1,8 @@
+@use '@/config/font-face';
+@use '@/config/colors';
+
+.body {
+    font-family: '#{font-face.$family}', sans-serif;
+    color: colors.$text;
+    background-color: colors.$bg-main;
+}
