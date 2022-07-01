@@ -1,3 +1,5 @@
-<div>
-    <!-- Happiness is not something readymade. It comes from your own actions. - Dalai Lama -->
-</div>
+@props(['value' => null])
+
+<label {{ $attributes }}>
+    {{ $value ? __($value) : $slot }}
+</label>

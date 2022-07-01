@@ -1,5 +1,5 @@
-<x-layouts.post :title="$title" :description="$description" header-slider>
-    <x-layout.main class="post news">
+<x-layouts.post :meta-title="$metaTitle" :meta-description="$metaDescription" header-slider>
+    <x-layout.main class="post news" wrapper>
         <x-slot:top>
             <h1>{{ __($title) }}</h1>
         </x-slot:top>
@@ -16,7 +16,7 @@
         </x-slot:bottom>
     </x-layout.main>
 
-    <x-layout.container class="post-pagination" flex>
+    <x-layout.container class="post-pagination" wrapper flex>
         <div class="post-pagination__left">
             <a href="#" class="left">Pagination Left</a>
         </div>
@@ -32,7 +32,7 @@
             <a href="#" class="right">Pagination Right</a>
         </div>
     </x-layout.container>
-    <x-layout.container class="post-more" flex>
+    <x-layout.container class="post-more" wrapper flex>
         <x-slot:top>
             <h2>{{ __('Читайте также') }}</h2>
         </x-slot:top>

@@ -9,7 +9,7 @@
 .admin.container {
     font-size: 2rem;
 
-    & > .container__wrapper.grid {
+    & > .wrapper.grid {
         @include grid.grid {
             gap: 20px;
             grid-template: 'aside main' 1fr / 345px 1fr;

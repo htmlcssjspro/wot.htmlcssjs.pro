@@ -1,14 +1,22 @@
-@props(['wrapper', 'flex' => false, 'grid' => false])
+@props(['master' => null, 'wrapper' => false, 'flex' => false, 'grid' => false])
+@aware(['master', 'wrapper', 'flex', 'grid'])
 
-<div {{ $attributes->class(['content']) }}>
-    @isset($wrapper)
-        <x-layout.wrapper master="content" :flex="$flex" :grid="$grid">
+<div
+    {{ $attributes->class([
+        'content',
+        $master . '__content' => $master,
+        'flex' => $flex && !$wrapper,
+        'grid' => $grid && !$wrapper,
+    ]) }}>
+
+    @if ($wrapper)
+        <x-layout.wrapper>
             {{ $slot }}
         </x-layout.wrapper>
     @else
         {{ $slot }}
-    @endisset
-    {{ $slot }}
+    @endif
+
 </div>
 
 

@@ -6,26 +6,19 @@
 @use '@/common/indent';
 
 @use '@/components/logo';
+@use '@/components/wot/navbar';
 @use '@/components/wot/dropdown';
 
 @use '@/icons/svg-icons';
 @use '@/icons/gold';
 
 .header {
-    & {
-        @extend %container;
-        @extend %container-first;
-    }
-
     &__top {
-        @extend %wrapper;
     }
     &__bottom {
-        @extend %container;
         background-color: colors.$bg-section;
     }
     &__wrapper {
-        @extend %wrapper;
     }
 
     &__logo {
@@ -37,55 +30,13 @@
     }
 
     &__btn {
-        border: 1px solid colors.$button-bg;
-    }
-
-    .navbar {
-        &_top {
-            @extend %flex-row-sb-c;
-            padding: 1rem 0;
-            font-size: 1.4rem;
-            & .dropdown-menu__toggle {
-                @extend %svg-arrow-down_right;
-            }
-        }
-        &_bottom {
-            @extend %flex-row-sb-c;
-            padding: 3.5rem 2.7rem 3.2rem 2.6rem;
-            font-size: 2rem;
-            & .dropdown-menu__toggle {
-                @extend %svg-arrow-down_right-big;
-            }
-        }
-
-        &__group {
-            &_left {
-                @extend %flex-row-sb-c;
-                gap: 2.5rem;
-                flex: 1 0 50%;
-                & li:last-child {
-                    margin-left: auto;
-                }
-            }
-            &_right {
-                @extend %flex-row-sb-c;
-                gap: 2.5rem;
-                flex: 1 0 50%;
-                & li:first-child {
-                    margin-left: 3.2rem;
-                    margin-right: auto;
-                }
-            }
-        }
-    }
-
-    .user-icon {
-        @extend %svg-user_left;
     }
 
     .user {
-        & {
-            font-weight: 500;
+        font-weight: 500;
+
+        &-icon {
+            @extend %svg-user_left;
         }
 
         .name {

@@ -1,21 +1,15 @@
-@props(['top', 'bottom', 'flex' => false, 'grid' => false])
+@props(['top' => null, 'bottom' => null])
 
-<footer {{ $attributes->class(['footer'])->merge(['id' => 'footer']) }}>
+<x-layout.container {{ $attributes->merge(['id' => 'footer']) }} tag="footer" master="footer">
 
-    @isset($top)
-        <div {{ $top->attributes->class(['footer__top']) }}>
-            {{ $top }}
-        </div>
-    @endisset
+    <x-slot:top>
+        {{ $top }}
+    </x-slot:top>
 
-    <div @class(['footer__wrapper', 'flex' => $flex, 'grid' => $grid])>
-        {{ $slot }}
-    </div>
+    {{ $slot }}
 
-    @isset($bottom)
-        <div {{ $bottom->attributes->class(['footer__bottom']) }}>
-            {{ $bottom }}
-        </div>
-    @endisset
+    <x-slot:bottom>
+        {{ $bottom }}
+    </x-slot:bottom>
 
-</footer>
+</x-layout.container>

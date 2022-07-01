@@ -1,8 +1,15 @@
 @use '@/config/font-face';
 @use '@/config/colors';
 
+@use '@/common/flex';
+
 .body {
     font-family: '#{font-face.$family}', sans-serif;
     color: colors.$text;
     background-color: colors.$bg-main;
+    min-height: 100vh;
+
+    &.flex {
+        @extend %flex-col-fs-c;
+    }
 }

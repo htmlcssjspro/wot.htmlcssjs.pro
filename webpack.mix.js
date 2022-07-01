@@ -25,8 +25,10 @@ mix.webpackConfig({
 });
 
 mix.js('resources/assets/js/app.js', 'js');
+mix.js('resources/assets/js/admin.js', 'js');
 
 mix.sass('resources/assets/scss/app.scss', 'css', []);
+mix.sass('resources/assets/scss/admin.scss', 'css', []);
 
 // mix.postCss('resources/assets/css/app-pure.css', 'css', []);
 

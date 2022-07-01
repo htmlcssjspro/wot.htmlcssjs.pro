@@ -1,4 +1,3 @@
-
 @props(['top', 'bottom', 'flex' => false, 'grid' => false])
 
 <aside {{ $attributes->class(['aside'])->merge(['id' => 'aside']) }}>

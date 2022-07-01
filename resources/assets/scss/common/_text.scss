@@ -69,37 +69,54 @@
     }
 }
 
-.t60,
-.fs-60 {
-    font-size: 6rem;
+%fs-12 {
+    font-size: 1.2rem;
 }
-.t30,
-.fs-30 {
-    font-size: 3rem;
-}
-.t26,
-.fs-26 {
-    font-size: 2.6rem;
-}
-.t20,
-.fs-20 {
-    font-size: 2rem;
-}
-.t18,
-.fs-18 {
-    font-size: 1.8rem;
-}
-.t16,
-.fs-16 {
-    font-size: 1.6rem;
-}
-.t14,
-.fs-14 {
+%fs-14 {
     font-size: 1.4rem;
 }
-.t12,
-.fs-12 {
-    font-size: 1.2rem;
+%fs-16 {
+    font-size: 1.6rem;
+}
+%fs-18 {
+    font-size: 1.8rem;
+}
+%fs-20 {
+    font-size: 2rem;
+}
+%fs-26 {
+    font-size: 2.6rem;
+}
+%fs-30 {
+    font-size: 3rem;
+}
+%fs-60 {
+    font-size: 6rem;
+}
+
+.t12 {
+    @extend %fs-12;
+}
+.t14 {
+    @extend %fs-14;
+}
+.t16 {
+    @extend %fs-16;
+}
+.t18 {
+    @extend %fs-18;
+}
+.t20 {
+    @extend %fs-20;
+}
+.t26 {
+    @extend %fs-26;
+}
+.t30 {
+    @extend %fs-30;
+}
+.t60 {
+    @extend %fs-60;
 }
 
 %font-weight,

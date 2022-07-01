@@ -5,34 +5,16 @@
 @use '@/components/logo';
 
 .footer {
-    & {
-        @extend %container;
-        @extend %container-last;
-        margin-top: viewport.$gap;
-        background-color: colors.$bg-section;
+    margin-top: viewport.$gap;
+    background-color: colors.$bg-section;
+
+    &.flex-item {
+        margin-top: auto;
     }
 
     &__wrapper {
-        @extend %wrapper;
-    }
-
-    &__btn {
-        background-color: colors.$primary;
-    }
-
-    .navbar {
-        @extend %flex-row-sb-c;
-        padding: 33px 0 38px;
-        font-size: 1.4rem;
-
-        &__item:first-child {
-            margin-bottom: 1em;
+        .flex {
+            @extend %flex-sb-c;
         }
-        &__group {
-        }
-    }
-
-    .social {
-        @extend %flex-row-sb-c;
     }
 }

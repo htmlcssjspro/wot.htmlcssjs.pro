@@ -1,9 +1,24 @@
-<x-layouts.app :title="$title" :description="$description">
-    <x-layout.container class="admin" wrapper grid>
+@props(['metaTitle', 'metaDescription', 'headerSlider'])
 
-        <x-slot:header>
-            <h1>{{ __('Панель администратора') }}</h1>
-        </x-slot:header>
+<x-layouts.clean meta-title="Панель администратора" meta-description="Панель администратора" class="flex">
+
+    @push('styles')
+        <link rel="stylesheet" href="{{ mix('css/admin.css') }}">
+    @endpush
+    @push('scripts')
+        <script defer src="{{ mix('js/admin.js') }}"></script>
+    @endpush
+
+
+    <x-header.admin />
+
+    <x-layout.container master="admin" content grid>
+
+        <x-slot:top>
+            <div class="wrapper">
+                <h1>{{ __('Панель администратора') }}</h1>
+            </div>
+        </x-slot:top>
 
         <x-layout.aside class="admin">
             <ul>
@@ -11,15 +26,12 @@
                     $links = [
                         'admin.finance' => 'Финансы',
                         'admin.referral' => 'Реферальная программа',
-                        'admin.competition' => 'Соревнования',
+                        'admin.battles' => 'Соревнования',
                     ];
                 @endphp
                 @foreach ($links as $route => $link)
                     <li>
-                        <a href="{{ route($route) }}" @class([
-                            'p-cell',
-                            'active' => route($route) === url()->current(),
-                        ])>
+                        <a href="{{ route($route) }}" @class(['p-cell', 'active' => route($route) === url()->current()])>
                             {{ __($link) }}
                         </a>
                     </li>
@@ -30,4 +42,7 @@
         {{ $slot }}
 
     </x-layout.container>
-</x-layouts.app>
+
+    <x-footer.admin />
+
+</x-layouts.clean>

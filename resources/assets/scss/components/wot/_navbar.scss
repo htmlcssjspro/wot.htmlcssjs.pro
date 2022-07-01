@@ -1,0 +1,82 @@
+@use '@/config/colors';
+@use '@/common/flex';
+@use '@/components/navbar';
+@use '@/icons/svg-icons';
+
+.navbar {
+    &.flex {
+        @extend %flex-row-sb-c;
+    }
+
+    &_top {
+        padding: 1rem 0;
+        font-size: 1.4rem;
+        & .dropdown__toggle,
+        & .dropdown-menu__toggle {
+            @extend %svg-arrow-down_right;
+        }
+    }
+    &_bottom {
+        padding: 3.5rem 2.7rem 3.2rem 2.6rem;
+        font-size: 2rem;
+        & .dropdown__toggle,
+        & .dropdown-menu__toggle {
+            @extend %svg-arrow-down_right-big;
+        }
+    }
+
+    @at-root .footer & {
+        @extend %flex-row-sb-fs;
+        padding: 33px 0 38px;
+        font-size: 1.4rem;
+    }
+
+    &__group {
+        @at-root .header & {
+            @extend %flex-row-sb-c;
+            gap: 2.5rem;
+            flex: 1 0 50%;
+
+            &_left {
+                & > .navbar__item:last-child {
+                    margin-left: auto;
+                }
+            }
+            &_right {
+                & > .navbar__item:first-child {
+                    margin-left: 3.2rem;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+
+    &__list {
+        @at-root .header .navbar > & {
+            @extend %flex-row-sb-c;
+        }
+
+        &.dropdown__list {
+            min-width: 10rem;
+            margin: 0;
+            margin-top: 0.125rem;
+            padding: 0.5rem 0;
+            font-size: 1em;
+            text-align: left;
+            background-clip: padding-box;
+            background-color: colors.$bg-section;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 0.25rem;
+        }
+
+        &.social {
+            @extend %flex-row-sb-c;
+        }
+    }
+
+    &__item {
+        @at-root .footer &:first-child {
+            margin-bottom: 1em;
+        }
+    }
+}

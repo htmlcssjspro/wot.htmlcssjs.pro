@@ -12,7 +12,7 @@
 @use '@/components/wot/table';
 
 .posts.main {
-    @extend .fs-20;
+    @extend %fs-20;
     .article__wrapper.flex {
         gap: 1em;
         @extend %flex-col-sb;
@@ -20,7 +20,7 @@
 }
 
 .post.main {
-    @extend .fs-20;
+    @extend %fs-20;
     .main__top {
         padding-top: 20rem;
         background-color: colors.$bg-section;
@@ -29,7 +29,7 @@
 
 .post-pagination,
 .post-more {
-    @extend .fs-20;
+    @extend %fs-20;
     .flex {
         gap: 2rem;
         @extend %flex-sb;
@@ -37,7 +37,7 @@
 }
 
 .post-pagination {
-    @extend .fs-20;
+    @extend %fs-20;
     .post-pagination__left {
         .left {
             @extend %svg-chevron-left-before;
@@ -58,7 +58,7 @@
 }
 
 .post-more {
-    @extend .fs-20;
+    @extend %fs-20;
     &__block {
         flex: 1 1;
         min-height: 22rem;
@@ -92,7 +92,7 @@
 
     h1,
     h2 {
-        @extend .fs-30;
+        @extend %fs-30;
     }
 
     .main {
@@ -125,7 +125,7 @@
 
     .marked-block {
         span:last-child {
-            @extend .fs-20;
+            @extend %fs-20;
         }
     }
 

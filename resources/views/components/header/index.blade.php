@@ -1,68 +1,87 @@
-@props([
-    'username' => 'Игрок1',
-    'balance' => 234,
-    'slider',
-])
+@props(['slider'])
 
-<x-layout.header>
+<x-layout.header wrapper>
 
-    {{-- <x-header.top /> --}}
     <x-slot:top>
-        <nav class="navbar navbar_top">
-            <ul class="navbar__group_left">
-                <li class="navbar__item">
-                    <x-logo class="header__logo" />
-                </li>
-                <li class="navbar__item dropdown-menu">
-                    <div class="dropdown-menu__toggle">
-                        {{ __('Партнерам') }}
-                    </div>
-                    <ul class="dropdown-menu__menu">
-                        <li>
-                            <a class="dropdown__item" href="{{ route('ref-player') }}">
-                                {{ __('Игрокам') }}
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown__item" href="{{ route('ref-dev') }}">
-                                {{ __('Вебмастерам') }}
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="navbar__group_right">
-                <li class="navbar__item dropdown-menu">
-                    <div class="dropdown-menu__toggle">
-                        {{ __('Помощь') }}
-                    </div>
-                    <div class="dropdown-menu__menu">
-                        <a class="dropdown__item" href="{{ route('instructions') }}">
-                            {{ __('Инструкции для игроков') }}
-                        </a>
-                        <a class="dropdown__item" href="{{ route('faq') }}">
-                            {{ __('Частозадаваемые вопросы') }}
-                        </a>
-                    </div>
-                </li>
-                <li class="navbar__item">
-                    <a href="{{ route('user.profile') }}" class="user-icon">
-                        {{ __('Личный кабинет') }}
-                    </a>
-                </li>
-                <li>
-                    <div class="user">
-                        <span class="name">{{ $username }}</span>
-                        <span class="gold">{{ $balance }}</span>
-                    </div>
-                </li>
-                <li class="navbar__item">
-                    <a href="{{ route('user.buygold') }}" class="header__btn btn btn_border p-cell">
-                        {{ __('Пополнение счета') }}
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <x-layout.wrapper class="header__top">
+            <x-navbar class="navbar_top" flex>
+                <x-navbar.list group="left">
+                    <x-navbar.item>
+                        <x-logo class="header__logo" />
+                    </x-navbar.item>
+                    <x-navbar.item dropdown>
+                        <x-dropdown.toggle value="Партнерам" />
+                        <x-navbar.list dropdown-list>
+                            <x-navbar.item dropdown-item>
+                                <x-link href="{{ route('referral.player') }}" value="Игрокам" />
+                            </x-navbar.item>
+                            <x-navbar.item dropdown-item>
+                                <x-link href="{{ route('referral.developer') }}" value="Вебмастерам" />
+                            </x-navbar.item>
+                        </x-navbar.list>
+                    </x-navbar.item>
+                </x-navbar.list>
+                <x-navbar.list group="right">
+                    <x-navbar.item dropdown>
+                        <x-dropdown.toggle value="Помощь" />
+                        <x-navbar.list dropdown-list>
+                            <x-navbar.item dropdown-item>
+                                <x-link href="{{ route('instructions') }}" value="Инструкции для игроков" />
+                            </x-navbar.item>
+                            <x-navbar.item dropdown-item>
+                                <x-link href="{{ route('faq') }}" value="Частозадаваемые вопросы" />
+                            </x-navbar.item>
+                        </x-navbar.list>
+                    </x-navbar.item>
+                    @guest
+                        <x-navbar.item>
+                            <x-link href="{{ route('login') }}" value="Вход" class="btn btn_border p-cell" />
+                        </x-navbar.item>
+                        <x-navbar.item>
+                            <x-link href="{{ route('register') }}" value="Регистрация" class="btn btn_border p-cell" />
+                        </x-navbar.item>
+                    @endguest
+                    @auth
+                        <x-navbar.item>
+                            <x-link href="{{ route('user.profile') }}" value="Личный кабинет" class="user-icon" />
+                        </x-navbar.item>
+                        <x-navbar.item>
+                            <div class="user">
+                                <span class="name">{{ auth()->user()->nickname }}</span>
+                                <span class="gold">{{ auth()->user()->balance->total }}</span>
+                            </div>
+                        </x-navbar.item>
+                        <x-navbar.item>
+                            <x-link href="{{ route('user.buygold') }}" value="Пополнение счета"
+                                class="btn btn_border p-cell" />
+                        </x-navbar.item>
+                    @endauth
+                </x-navbar.list>
+            </x-navbar>
+            <x-navbar class="navbar_top" flex>
+                <x-navbar.list group="right">
+                    <x-navbar.item>
+                        <x-link href="{{ route('login') }}" value="Вход" class="btn btn_border p-cell" />
+                    </x-navbar.item>
+                    <x-navbar.item>
+                        <x-link href="{{ route('register') }}" value="Регистрация" class="btn btn_border p-cell" />
+                    </x-navbar.item>
+                    <x-navbar.item>
+                        <x-link href="{{ route('user.profile') }}" value="Личный кабинет" class="user-icon" />
+                    </x-navbar.item>
+                    <x-navbar.item>
+                        <div class="user">
+                            <span class="name">{{ auth()->user()->nickname }}</span>
+                            <span class="gold">{{ auth()->user()->balance->total }}</span>
+                        </div>
+                    </x-navbar.item>
+                    <x-navbar.item>
+                        <x-link href="{{ route('user.buygold') }}" value="Пополнение счета"
+                            class="btn btn_border p-cell" />
+                    </x-navbar.item>
+                </x-navbar.list>
+            </x-navbar>
+        </x-layout.wrapper>
     </x-slot:top>
 
     @isset($slider)
@@ -92,51 +111,27 @@
         @endif
     @endisset
 
-    {{-- <x-header.bottom /> --}}
     <x-slot:bottom>
-        <div class="header__wrapper">
-            <nav class="navbar header__nav">
-                <ul class="navbar_bottom">
-                    <li class="navbar__item">
-                        <a href="{{ route('news.index') }}">{{ __('Новости') }}</a>
-                    </li>
-                    {{-- <li class="navbar__item dropdown-menu">
-                        <div class="dropdown-menu__toggle">
-                            {{ __('Новости') }}
-                        </div>
-                        <ul class="dropdown-menu__menu">
-                            <li class="dropdown__item">
-                                <a href="#">{{ __('Новость1') }}</a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="#">{{ __('Новость2') }}</a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="#">{{ __('Новость3') }}</a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="#">{{ __('Новость4') }}</a>
-                            </li>
-                            <li class="dropdown__item">
-                                <a href="#">{{ __('Новость5') }}</a>
-                            </li>
-                        </ul>
-                    </li> --}}
-                    <li class="navbar__item">
-                        <a href="{{ route('raiting') }}">{{ __('Рейтинг игроков') }}</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="#">{{ __('Инструкции') }}</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="#">{{ __('Блог') }}</a>
-                    </li>
-                    <li class="navbar__item">
-                        <a href="#">{{ __('FAQ') }}</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+        <x-layout.content class="header__bottom">
+            <x-layout.wrapper>
+                <x-navbar list class="navbar_bottom">
+                    <x-navbar.item>
+                        <x-link href="{{ route('news.index') }}" value="Новости" />
+                    </x-navbar.item>
+                    <x-navbar.item>
+                        <x-link href="{{ route('raiting') }}" value="Рейтинг игроков" />
+                    </x-navbar.item>
+                    <x-navbar.item>
+                        <x-link href="{{ route('instructions') }}" value="Инструкции" />
+                    </x-navbar.item>
+                    <x-navbar.item>
+                        <x-link href="{{ route('posts.index') }}" value="Блог" />
+                    </x-navbar.item>
+                    <x-navbar.item>
+                        <x-link href="{{ route('faq') }}" value="FAQ" />
+                    </x-navbar.item>
+                </x-navbar>
+            </x-layout.wrapper>
+        </x-layout.content>
     </x-slot:bottom>
-
 </x-layout.header>

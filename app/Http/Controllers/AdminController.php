@@ -2,54 +2,85 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Admin;
+use App\Http\Requests\StoreAdminRequest;
+use App\Http\Requests\UpdateAdminRequest;
 
 class AdminController extends Controller
 {
-    public string $title;
-    public string $description;
-    public string $h1;
-
-    public function __construct()
-    {
-    }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-
+        //
     }
 
-    public function homePage()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $this->financePage();
-
-        // $this->title = 'Admin';
-        // $this->description = 'Admin Description';
-        // \extract(\get_object_vars($this));
-        // return view('components.page-admin.index', compact('title', 'description'));
+        //
     }
 
-    public function financePage()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreAdminRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StoreAdminRequest $request)
     {
-        $this->title = 'Finance';
-        $this->description = 'Finance Description';
-        \extract(\get_object_vars($this));
-        return view('admin.finance', compact('title', 'description'));
+        //
     }
 
-    public function referralPage()
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Admin $admin)
     {
-        $this->title = 'Referral';
-        $this->description = 'Referral Description';
-        \extract(\get_object_vars($this));
-        return view('admin.referral', compact('title', 'description'));
+        //
     }
 
-    public function competitionPage()
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Admin $admin)
     {
-        $this->title = 'Competition';
-        $this->description = 'Competition Description';
-        \extract(\get_object_vars($this));
-        return view('admin.competition', compact('title', 'description'));
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateAdminRequest  $request
+     * @param  \App\Models\Admin  $admin
+     * @return \Illuminate\Http\Response
+     */
+    public function update(UpdateAdminRequest $request, Admin $admin)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Admin  $admin
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Admin $admin)
+    {
+        //
     }
 }

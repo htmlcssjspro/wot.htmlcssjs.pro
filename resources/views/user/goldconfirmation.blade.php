@@ -1,4 +1,4 @@
-<x-layouts.app :title="$title" :description="$description">
+<x-layouts.app :meta-title="$metaTitle" :meta-description="$metaDescription">
 
     <x-layout.main class="goldconfirmation" wrapper>
 

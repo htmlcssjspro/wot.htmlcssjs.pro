@@ -1,21 +1,15 @@
-@props(['top', 'bottom', 'flex' => false, 'grid' => false])
+@props(['top' => null, 'bottom' => null])
 
-<header {{ $attributes->class(['header'])->merge(['id' => 'header']) }}>
+<x-layout.container {{ $attributes->merge(['id' => 'header']) }} tag="header" master="header">
 
-    @isset($top)
-        <div {{ $top->attributes->class(['header__top']) }}>
-            {{ $top }}
-        </div>
-    @endisset
+    <x-slot:top>
+        {{ $top }}
+    </x-slot:top>
 
-    <div @class(['header__wrapper', 'flex' => $flex, 'grid' => $grid])>
-        {{ $slot }}
-    </div>
+    {{ $slot }}
 
-    @isset($bottom)
-        <div {{ $bottom->attributes->class(['header__bottom']) }}>
-            {{ $bottom }}
-        </div>
-    @endisset
+    <x-slot:bottom>
+        {{ $bottom }}
+    </x-slot:bottom>
 
-</header>
+</x-layout.container>

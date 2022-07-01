@@ -1,23 +1,40 @@
-@props(['wrapper', 'header', 'flex' => false, 'grid' => false])
+@props([
+    'master' => 'container',
+    'tag' => 'section',
+    'top',
+    'bottom',
+    'content' => false,
+    'wrapper' => false,
+    'flex' => false,
+    'grid' => false,
+])
 
-<section {{ $attributes->class(['container']) }}>
-    @isset($header)
-        <div {{ $header->attributes->class(['wrapper container__top']) }}>
-            {{ $header }}
-        </div>
+<{{ $tag }} {{ $attributes->class(['container', $master => $master]) }}>
+
+    @isset($top)
+        {{ $top }}
     @endisset
 
-    @isset($wrapper)
-        <x-layout.wrapper master="container" :flex="$flex" :grid="$grid">
+    @if ($content)
+        <x-layout.content>
+            {{ $slot }}
+        </x-layout.content>
+    @elseif($wrapper)
+        <x-layout.wrapper>
             {{ $slot }}
         </x-layout.wrapper>
     @else
         {{ $slot }}
+    @endif
+
+    @isset($bottom)
+        {{ $bottom }}
     @endisset
-</section>
+
+    </{{ $tag }}>
 
 
-{{-- Example
+    {{-- Example
 
 <x-layout.container>
     Content

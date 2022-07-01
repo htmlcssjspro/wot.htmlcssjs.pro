@@ -64,12 +64,16 @@ $black: $grey-900;
 
 //* theme colors
 
-$primary: hsla(25, 100%, 65%, 1);
+// $primary: hsla(25, 100%, 65%, 1);
+$primary: hsla(41, 100%, 55%, 1);
 $secondary: hsla(50, 12%, 10%, 1);
 $grey: hsla(47, 10%, 17%, 1);
 
 $text-color: $pure-white;
 $text: $text-color;
+
+$text-white: $pure-white;
+$text-black: $pure-black;
 $text-gray: $grey;
 $text-disabled: color.change($text, $alpha: 0.4);
 

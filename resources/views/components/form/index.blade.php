@@ -1,3 +1,4 @@
-<div>
-    <!-- He who is contented is rich. - Laozi -->
-</div>
+<form {{ $attributes->class(['form'])->merge(['method' => 'POST']) }}>
+    @csrf
+    {{ $slot }}
+</form>

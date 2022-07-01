@@ -1,4 +1,4 @@
-<x-layout :title="$title" :description="$description" header-slider>
+<x-layouts.app :meta-title="$metaTitle" :meta-description="$metaDescription" header-slider>
 
     <x-layout.aside class="user profile">
         <nav class="flex">
@@ -6,7 +6,7 @@
                 @php
                     $tabs = [
                         'summary' => 'Сводка',
-                        'competition' => 'Соревнования',
+                        'battles' => 'Соревнования',
                         'referral' => 'Реферальная программа',
                     ];
                 @endphp
@@ -40,7 +40,7 @@
                     <img src="https://via.placeholder.com/70.webp/FF974C/FFFFFF?text=Avatar" alt="avatar">
                 </div>
                 <div>
-                    <span class="t30 fw-7">{{ __($raitingTotal) }}</span>
+                    <span class="t30 fw-7">{{ $raitingTotal }}</span>
                     <span>{{ __('Общий рейтинг') }}</span>
                 </div>
             </div>
@@ -150,4 +150,4 @@
             </x-layout.flex>
         </div>
     </x-layout.main>
-</x-layout>
+</x-layouts.app>

@@ -1,6 +1,6 @@
-@props(['title', 'description','flex' => false, 'grid' => false])
+@props(['metaTitle', 'metaDescription','flex' => false, 'grid' => false])
 
-<x-layouts.app :title="$title" :description="$description">
+<x-layouts.app :meta-title="$metaTitle" :meta-description="$metaDescription">
     {{-- <x-layout.main {{ $attributes->class('posts') }} :flex="$flex" :grid="$grid"> --}}
         {{ $slot }}
     {{-- </x-layout.main> --}}

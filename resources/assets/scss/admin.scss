@@ -1,0 +1,64 @@
+@use '@/config/colors';
+
+@use '@/common/flex';
+@use '@/common/grid';
+@use '@/common/indent';
+
+@use '@/components/wot/marked';
+
+.admin.container {
+    font-size: 2rem;
+
+    & > .grid {
+        @include grid.grid {
+            gap: 20px;
+            grid-template: 'aside main' 1fr / 345px 1fr;
+        }
+    }
+}
+
+.admin.aside {
+    background-color: colors.$bg-section;
+
+    ul li {
+    }
+
+    a {
+        // @extend .p-cell;
+        &.active {
+            background-color: colors.$primary;
+        }
+    }
+}
+
+.admin.main {
+    background-color: colors.$bg-section;
+
+    .main__wrapper {
+        padding: 5rem;
+
+        .grid {
+            gap: 3rem;
+            grid-template: auto / repeat(3, 1fr);
+        }
+
+        .flex {
+            @extend %flex-sb-fs;
+            gap: 3rem;
+            margin-top: 10rem;
+        }
+    }
+
+    .finance {
+        &__block {
+            border-left: 2px solid colors.$primary;
+        }
+        &__available {
+            border-left: 2px solid hsla(115, 100%, 65%, 1);
+        }
+    }
+
+    span {
+        // @extend .p-cell;
+    }
+}

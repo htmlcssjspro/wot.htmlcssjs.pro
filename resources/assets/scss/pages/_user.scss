@@ -9,7 +9,7 @@
 @use '@/components/wot/checkbox';
 
 .user.aside {
-    @extend .fs-20;
+    @extend %fs-20;
     margin-top: 1em;
     margin-bottom: 1em;
 
@@ -33,7 +33,7 @@
 }
 
 .user.main {
-    @extend .fs-20;
+    @extend %fs-20;
 
     .main__wrapper {
         padding: viewport.$gap;
@@ -60,7 +60,7 @@
     }
 
     table {
-        @extend .fs-12;
+        @extend %fs-12;
 
         tbody tr:nth-child(odd) {
             background-color: colors.$bg-main;
@@ -107,7 +107,7 @@
 }
 
 .buygold {
-    @extend .fs-20;
+    @extend %fs-20;
 
     .main__top {
         background-color: colors.$bg-section;
@@ -158,12 +158,12 @@
 }
 
 .goldconfirmation {
-    @extend .fs-20;
+    @extend %fs-20;
     background-color: colors.$bg-section;
     padding: viewport.$gap;
 
     span {
-        @extend .fs-60;
+        @extend %fs-60;
         @extend .fw-5;
         color: colors.$primary;
     }

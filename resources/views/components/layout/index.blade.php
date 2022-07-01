@@ -1,4 +1,4 @@
-@props(['title', 'description', 'headerSlider'])
+@props(['metaTitle', 'metaDescription', 'headerSlider'])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -7,8 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title }}</title>
-    <meta name="description" content="{{ $description }}">
+    <title>{{ $metaTitle }}</title>
+    <meta name="description" content="{{ $metaDescription }}">
     <meta name="author" content="Sergei MILITER https://htmlcssjs.pro militer@htmlcssjs.pro">
 
     {{-- @livewireStyles --}}

@@ -1,0 +1,39 @@
+@use '@/config/viewport';
+@use '@/config/colors';
+@use '@/common/flex';
+@use '@/common/text';
+
+.form {
+    @extend %fs-20;
+
+    input {
+        color: colors.$text-black;
+
+        &:focus-visible {
+            outline: 1px auto colors.$primary;
+        }
+    }
+
+    &_auth {
+        width: 40rem;
+        margin: viewport.$gap auto;
+
+        .form__errors + label,
+        label + label {
+            margin-top: 2em;
+        }
+
+        label.flex {
+            gap: 1em;
+            @extend %flex-ai-c;
+        }
+    }
+
+    &__submit {
+        &.flex {
+            @extend %flex-sb;
+        }
+        margin-top: 3.5rem;
+        margin-bottom: 2.5rem;
+    }
+}

@@ -16,14 +16,11 @@
 
 @use '@/icons/gold';
 
-.container {
-    margin-bottom: viewport.$gap;
-}
-
 .home.container {
     margin-top: viewport.$gap;
+    margin-bottom: viewport.$gap;
 
-    & > .container__wrapper.grid {
+    & > .grid {
         @include grid.grid {
             gap: 20px;
             grid-template: 'aside main' 1fr / 345px 1fr;
@@ -193,7 +190,7 @@ article.competition {
         @extend %flex-row-sb-c;
     }
     h2 {
-        @extend .fs-20;
+        @extend %fs-20;
         text-align: center;
     }
     ul {
@@ -214,7 +211,7 @@ article.competition {
 }
 
 .slider {
-    margin-top: 7.5rem;
+    // margin-top: 7.5rem;
     margin-bottom: 7.5rem;
 
     h2 {

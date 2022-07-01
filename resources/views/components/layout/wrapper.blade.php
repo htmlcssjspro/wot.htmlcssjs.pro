@@ -1,13 +1,7 @@
-@props(['master' => null, 'wrapClass' => null, 'flex' => false, 'grid' => false])
+@props(['master' => null, 'flex' => false, 'grid' => false])
+@aware(['master', 'flex', 'grid'])
 
-<div
-    {{ $attributes->class([
-        'wrapper',
-        $master . '__wrapper' => $master,
-        $wrapClass => $wrapClass,
-        'flex' => $flex,
-        'grid' => $grid,
-    ]) }}>
+<div {{ $attributes->class(['wrapper', $master . '__wrapper' => $master, 'flex' => $flex, 'grid' => $grid]) }}>
     {{ $slot }}
 </div>
 

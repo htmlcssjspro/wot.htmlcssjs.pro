@@ -1,9 +1,6 @@
-<x-layout :title="$title" :description="$description" header-slider>
+<x-layouts.app :meta-title="$metaTitle" :meta-description="$metaDescription" header-slider>
 
-    {{-- <x-slot name="title">{{ $title }}</x-slot>
-    <x-slot name="description">{{ $description }}</x-slot> --}}
-
-    <x-layout.container class="home" wrapper grid>
+    <x-layout.container master="home" wrapper grid>
 
         <x-layout.aside class="home">
             @php
@@ -313,4 +310,4 @@
         </x-swiper>
     </x-sections.slider>
 
-</x-layout>
+</x-layouts.app>

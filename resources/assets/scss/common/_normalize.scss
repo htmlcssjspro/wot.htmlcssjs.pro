@@ -12,7 +12,7 @@
     border: none;
 }
 
-%cursor {
+%pointer {
     cursor: pointer;
 }
 
@@ -131,7 +131,7 @@ div {
 
 a {
     @extend %display-block;
-    @extend %cursor;
+    @extend %pointer;
     text-decoration: none;
     color: inherit;
 }
@@ -176,7 +176,7 @@ input[type='submit'] {
     @extend %font;
     @extend %border;
     @extend %userselect;
-    @extend %cursor;
+    @extend %pointer;
     text-align: center;
     padding: 0.5em 1em;
     background-color: transparent;
@@ -209,7 +209,10 @@ label {
     @extend %userselect;
 }
 
-input,
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='password'],
 legend {
     @extend %display-block;
     @extend %margin0padding0;
@@ -219,9 +222,15 @@ legend {
     padding-inline-end: 0;
 }
 
-input[type='checkbox'],
+input[type='checkbox'] {
+    @extend %margin0padding0;
+    @extend %font;
+    @extend %pointer;
+    width: 1em;
+    height: 1em;
+}
 input[type='radio'] {
-    @extend %cursor;
+    @extend %pointer;
 }
 
 select,

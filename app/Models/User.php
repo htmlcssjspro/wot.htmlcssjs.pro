@@ -18,9 +18,18 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nickname',
+        'account_id',
+        'access_token',
+        'expires_at',
+
+        'name', 'first_name', 'last_name',
         'email',
+        'active',
+
+        // 'balance_total', 'balance_own', 'balance_bonus',
         'password',
+
     ];
 
     /**
@@ -41,4 +50,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the Balance associated with the user.
+     */
+    public function balance()
+    {
+        return $this->hasOne(Balance::class, 'user_nickname', 'nickname');
+    }
 }

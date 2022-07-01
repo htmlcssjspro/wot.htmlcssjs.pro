@@ -1,6 +1,5 @@
 
-<x-layout :title="$title" :description="$description" header-slider>
-    {{-- <x-layout :title="$title" :description="$description"> --}}
+<x-layouts.app :meta-title="$metaTitle" :meta-description="$metaDescription" header-slider>
 
     <x-layout.main class="raiting" wrapper>
 
@@ -28,6 +27,9 @@
             <div class="table-body-scroll">
                 <table>
                     <tbody>
+                        @php
+                            $user = $data['user']
+                        @endphp
                         @for ($i = 0; $i < 50; $i++)
                             <tr>
                                 <td>{{ __($user['position'] + $i) }}</td>
@@ -43,4 +45,4 @@
 
     </x-layout.main>
 
-</x-layout>
+</x-layouts.app>

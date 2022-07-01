@@ -1,4 +1,4 @@
-<x-layouts.app :title="$title" :description="$description" header-slider>
+<x-layouts.app :meta-title="$metaTitle" :meta-description="$metaDescription" header-slider>
     <x-layout.main class="competition" wrapper flex>
         <x-slot:top-wrapper class="flex">
             @if ($status === 'active')

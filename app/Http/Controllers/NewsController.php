@@ -16,36 +16,17 @@ class NewsController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'News',
-            'description' => 'News Description',
+            'metaTitle' => 'News',
+            'metaDescription' => 'News Description',
             'h1' => 'Новости',
         ];
         return view('news.index', $data);
 
         // $title = 'News';
-        // $description = 'News Description';
+        // $metaDescription = 'News Description';
         // $h1 = 'Новости';
         // return view('news.index', compact('title', 'description', 'h1'));
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\News  $news
-     * @return \Illuminate\Http\Response
-     */
-    // public function show(News $news)
-    public function show($news)
-    {
-        $data = [
-            'title' => "Страница Новости $news",
-            'description' => 'News Description',
-            'content' => "Content of $news. Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Он деревни путь которой подпоясал, жаренные буквоград вскоре! Однажды предупреждал журчит себя путь ему инициал вскоре злых грамматики всемогущая первую.",
-            'author' => "Author of $news",
-            'date' => "Date of $news",
-            'img' => "$news",
-        ];
-        return view('news.single', $data);
     }
 
     /**
@@ -67,6 +48,26 @@ class NewsController extends Controller
     public function store(StoreNewsRequest $request)
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\News  $news
+     * @return \Illuminate\Http\Response
+     */
+    // public function show(News $news)
+    public function show($news)
+    {
+        $data = [
+            'metaTitle' => "Страница Новости $news",
+            'metaDescription' => 'News Description',
+            'content' => "Content of $news. Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Он деревни путь которой подпоясал, жаренные буквоград вскоре! Однажды предупреждал журчит себя путь ему инициал вскоре злых грамматики всемогущая первую.",
+            'author' => "Author of $news",
+            'date' => "Date of $news",
+            'img' => "$news",
+        ];
+        return view('news.single', $data);
     }
 
     /**
