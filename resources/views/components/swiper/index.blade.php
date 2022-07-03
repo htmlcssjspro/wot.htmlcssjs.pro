@@ -6,13 +6,13 @@
         {{ $slot }}
     </div>
 
-    @isset($pagination)
+    {{-- @isset($pagination)
         @if ($pagination === 'pagination')
             <div class="swiper-pagination"></div>
         @else
             {{ $pagination }}
         @endif
-    @endisset
+    @endisset --}}
     @isset($navigation)
         @if ($navigation === 'navigation')
             <x-swiper.btn-prev />

@@ -261,7 +261,7 @@
     </x-layout.container>
 
     <x-sections.slider title="Наибольший выигрыш">
-        <x-swiper class="slider1" :navigation="true">
+        <x-swiper class="slider1" navigation>
             @for ($i = 0; $i < 10; $i++)
                 <x-swiper.slide>
                     <x-articles.competition />
@@ -271,7 +271,7 @@
     </x-sections.slider>
 
     <x-sections.slider title="Скоро завершатся">
-        <x-swiper class="slider2" :navigation="true">
+        <x-swiper class="slider2" navigation>
             @for ($i = 0; $i < 10; $i++)
                 <x-swiper.slide>
                     <x-articles.competition />
@@ -281,7 +281,7 @@
     </x-sections.slider>
 
     <x-sections.slider title="Скоро начнутся">
-        <x-swiper class="slider3" :navigation="true">
+        <x-swiper class="slider3" navigation>
             @for ($i = 0; $i < 10; $i++)
                 <x-swiper.slide>
                     <x-articles.competition />
@@ -291,7 +291,7 @@
     </x-sections.slider>
 
     <x-sections.slider title="Рекомендуемые">
-        <x-swiper class="slider4" :navigation="true">
+        <x-swiper class="slider4" navigation>
             @for ($i = 0; $i < 10; $i++)
                 <x-swiper.slide>
                     <x-articles.competition />
@@ -301,7 +301,7 @@
     </x-sections.slider>
 
     <x-sections.slider title="Последние просмотренные">
-        <x-swiper class="slider5" :navigation="true">
+        <x-swiper class="slider5" navigation>
             @for ($i = 0; $i < 10; $i++)
                 <x-swiper.slide>
                     <x-articles.competition />
