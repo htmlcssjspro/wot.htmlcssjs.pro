@@ -5,14 +5,34 @@ $height: 100px !default;
 // $url: '../img/logo/logo.png' !default;
 
 .logo {
-    width: 170px;
+    // width: 170px;
     // background: url($url) center / contain no-repeat;
-    font-size: 3rem;
-    a {
-        @extend %flex-row-sb-c;
+    a.flex {
+        @extend %flex-ai-c;
     }
+
     img {
-        width: 53px;
-        height: 53px;
+    }
+
+    span {
+        margin-left: 1em;
+    }
+
+    &_header {
+        font-size: 1.8rem;
+
+        img {
+            width: 34px;
+            height: 24px;
+        }
+    }
+
+    &_footer {
+        font-size: 3.6rem;
+
+        img {
+            width: 65px;
+            height: 46px;
+        }
     }
 }

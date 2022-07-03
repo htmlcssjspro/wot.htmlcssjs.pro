@@ -1,24 +1,29 @@
-.link {
-    $link: &;
+@use '@/config/colors';
 
-    & {
-        color: $link-color;
-    }
+.link {
+    // @at-root .header__bottom & {
+    //     padding: 30px 25px;
+
+    //     border-top: 3px solid transparent;
+    //     border-bottom: 3px solid transparent;
+
+    //     &.active {
+    //         color: colors.$primary;
+    //         border-bottom-color: colors.$primary;
+    //     }
+    //     &:hover {
+    //         color: hsla(0, 0%, 74%, 1);
+    //     }
+    // }
 
     &:hover {
-        color: $link-hover-color;
     }
 
-    &:active {
-        color: $link-active-color;
+    &:active,
+    &.active {
     }
 
     &_inline {
-        color  : $color-primary;
         display: inline;
-
-        &:hover {
-            text-decoration: underline;
-        }
     }
 }

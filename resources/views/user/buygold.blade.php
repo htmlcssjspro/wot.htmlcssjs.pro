@@ -6,11 +6,10 @@
             <x-layout.wrapper master="content" flex>
                 <div class="form">
                     <h1>{{ __($title) }}</h1>
-                    <form id="buygold" action="#" method="POST">
-                        @csrf
+                    <x-form id="buygold" action="#">
                         <input type="number" name="amount" id="amount">
-                        <button type="submit" class="btn btn_common">{{ __('Купить') }}</button>
-                    </form>
+                        <x-form.submit type="submit" class="btn btn_common">{{ __('Купить') }}</x-form.submit>
+                    </x-form>
                 </div>
                 <div class="balance flex">
                     <span>{{ __('Никнейм') }}</span>

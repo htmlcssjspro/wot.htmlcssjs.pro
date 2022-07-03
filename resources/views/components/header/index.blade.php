@@ -3,11 +3,11 @@
 <x-layout.header wrapper>
 
     <x-slot:top>
-        <x-layout.wrapper class="header__top">
+        <x-layout.content wrapper class="header__top">
             <x-navbar class="navbar_top" flex>
                 <x-navbar.list group="left">
                     <x-navbar.item>
-                        <x-logo class="header__logo" />
+                        <x-logo class="logo_header" />
                     </x-navbar.item>
                     <x-navbar.item dropdown>
                         <x-dropdown.toggle value="Партнерам" />
@@ -52,8 +52,7 @@
                             </div>
                         </x-navbar.item>
                         <x-navbar.item>
-                            <x-link href="{{ route('user.buygold') }}" value="Пополнение счета"
-                                class="btn btn_border p-cell" />
+                            <x-link href="{{ route('user.buygold') }}" value="Пополнение счета" class="btn btn_main" />
                         </x-navbar.item>
                     @endauth
                 </x-navbar.list>
@@ -61,10 +60,10 @@
             <x-navbar class="navbar_top" flex>
                 <x-navbar.list group="right">
                     <x-navbar.item>
-                        <x-link href="{{ route('login') }}" value="Вход" class="btn btn_border p-cell" />
+                        <x-link href="{{ route('login') }}" value="Вход" class="btn btn_main" />
                     </x-navbar.item>
                     <x-navbar.item>
-                        <x-link href="{{ route('register') }}" value="Регистрация" class="btn btn_border p-cell" />
+                        <x-link href="{{ route('register') }}" value="Регистрация" class="btn btn_main" />
                     </x-navbar.item>
                     <x-navbar.item>
                         <x-link href="{{ route('user.profile') }}" value="Личный кабинет" class="user-icon" />
@@ -76,62 +75,99 @@
                         </div>
                     </x-navbar.item>
                     <x-navbar.item>
-                        <x-link href="{{ route('user.buygold') }}" value="Пополнение счета"
-                            class="btn btn_border p-cell" />
+                        <x-link href="{{ route('user.buygold') }}" value="Пополнение счета" class="btn btn_main" />
                     </x-navbar.item>
                 </x-navbar.list>
             </x-navbar>
-        </x-layout.wrapper>
+        </x-layout.content>
     </x-slot:top>
 
     @isset($slider)
         @if ($slider)
-            {{-- <x-header.slider /> --}}
             <x-swiper class="header-slider">
 
-                <x-swiper.slide>
-                    <img src="https://via.placeholder.com/1440x361.webp?text=Slide1" alt="slide">
-                </x-swiper.slide>
-                <x-swiper.slide>
-                    <img src="https://via.placeholder.com/1440x361.webp?text=Slide2" alt="slide">
-                </x-swiper.slide>
-                <x-swiper.slide>
-                    <img src="https://via.placeholder.com/1440x361.webp?text=Slide3" alt="slide">
-                </x-swiper.slide>
-                <x-swiper.slide>
-                    <img src="https://via.placeholder.com/1440x361.webp?text=Slide4" alt="slide">
-                </x-swiper.slide>
-                <x-swiper.slide>
-                    <img src="https://via.placeholder.com/1440x361.webp?text=Slide5" alt="slide">
-                </x-swiper.slide>
+                @php
+                    $slides = [
+                        'slide1' => [
+                            'img' => url('images/slider/slider1.png'),
+                            'alt' => 'slider-img',
+                            'title' => "Прими\rучастие в\rсоревновании",
+                            'link-title' => 'Максимальный урон',
+                            'route' => 'battles/battle1',
+                        ],
+                        'slide2' => [
+                            'img' => url('images/slider/slider1.png'),
+                            'alt' => 'slider-img',
+                            'title' => "Прими\rучастие в\rсоревновании",
+                            'link-title' => 'Максимальный урон',
+                            'route' => 'battles/battle2',
+                        ],
+                        'slide3' => [
+                            'img' => url('images/slider/slider1.png'),
+                            'alt' => 'slider-img',
+                            'title' => "Прими\rучастие в\rсоревновании",
+                            'link-title' => 'Максимальный урон',
+                            'route' => 'battles/battle3',
+                        ],
+                        'slide4' => [
+                            'img' => url('images/slider/slider1.png'),
+                            'alt' => 'slider-img',
+                            'title' => "Прими\rучастие в\rсоревновании",
+                            'link-title' => 'Максимальный урон',
+                            'route' => 'battles/battle4',
+                        ],
+                        'slide5' => [
+                            'img' => url('images/slider/slider1.png'),
+                            'alt' => 'slider-img',
+                            'title' => "Прими\rучастие в\rсоревновании",
+                            'link-title' => 'Максимальный урон',
+                            'route' => 'battles/battle5',
+                        ],
+                    ];
+                @endphp
 
-                <x-swiper.navigation />
+                @foreach ($slides as $name => $item)
+                    <x-swiper.slide>
+                        <img src="{{ $item['img'] }}" alt="{{ $item['alt'] }}">
+                        <h2 class="title">{{ $item['title'] }}</h2>
+                        {{-- <x-link :href="route($item['route']) ?? '#'" class="btn btn_slider" :value="$item['link-title']" /> --}}
+                        <x-link class="btn btn_slider" :value="$item['link-title']" />
+                    </x-swiper.slide>
+                @endforeach
+
+                <x-slot:navigation>
+                    <x-swiper.btn-prev>
+                        <x-svg-symbol href="#caret-left" fill="white" width="21" height="37" />
+                    </x-swiper.btn-prev>
+                    <x-swiper.btn-next>
+                        <x-svg-symbol href="#caret-right" fill="white" width="21" height="37" />
+                    </x-swiper.btn-next>
+                </x-slot:navigation>
 
             </x-swiper>
         @endif
     @endisset
 
     <x-slot:bottom>
-        <x-layout.content class="header__bottom">
-            <x-layout.wrapper>
-                <x-navbar list class="navbar_bottom">
+        <x-layout.content wrapper class="header__bottom">
+            <x-navbar list class="navbar_bottom">
+                @php
+                    $collection = [
+                        'home' => 'Главная',
+                        'news.index' => 'Новости',
+                        'raiting' => 'Рейтинг игроков',
+                        'instructions' => 'Инструкции',
+                        'posts.index' => 'Блог',
+                        'faq' => 'FAQ',
+                    ];
+                @endphp
+                @foreach ($collection as $route => $title)
                     <x-navbar.item>
-                        <x-link href="{{ route('news.index') }}" value="Новости" />
+                        <x-link href="{{ route($route) }}" :value="$title"
+                            class="{{ route($route) === url()->current() ? 'active' : '' }}" />
                     </x-navbar.item>
-                    <x-navbar.item>
-                        <x-link href="{{ route('raiting') }}" value="Рейтинг игроков" />
-                    </x-navbar.item>
-                    <x-navbar.item>
-                        <x-link href="{{ route('instructions') }}" value="Инструкции" />
-                    </x-navbar.item>
-                    <x-navbar.item>
-                        <x-link href="{{ route('posts.index') }}" value="Блог" />
-                    </x-navbar.item>
-                    <x-navbar.item>
-                        <x-link href="{{ route('faq') }}" value="FAQ" />
-                    </x-navbar.item>
-                </x-navbar>
-            </x-layout.wrapper>
+                @endforeach
+            </x-navbar>
         </x-layout.content>
     </x-slot:bottom>
 </x-layout.header>

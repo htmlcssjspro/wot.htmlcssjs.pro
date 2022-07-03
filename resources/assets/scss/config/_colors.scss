@@ -59,8 +59,9 @@ $danger: $red !default;
 $pure-white: hsl(0, 0%, 100%);
 $pure-black: hsl(0, 0%, 0%);
 
-$white: $grey-100;
-$black: $grey-900;
+$white: $pure-white;
+$black: hsl(0, 0%, 4%);
+$grey: hsl(0, 0%, 23%);
 
 //* theme colors
 
@@ -69,19 +70,24 @@ $primary: hsla(41, 100%, 55%, 1);
 $secondary: hsla(50, 12%, 10%, 1);
 $grey: hsla(47, 10%, 17%, 1);
 
-$text-color: $pure-white;
+$text-color: $white;
 $text: $text-color;
 
-$text-white: $pure-white;
-$text-black: $pure-black;
-$text-gray: $grey;
+$text-white: $white;
+$text-black: $black;
+$text-gray: hsla(0, 0%, 58%, 1);
+
 $text-disabled: color.change($text, $alpha: 0.4);
 
-$button-color: $secondary;
-$button: $button-color;
-$button-active: $button-color;
-$button-bg: $primary;
-$button-bg-disabled: color.grayscale($button-bg);
+// $button-color: hsla(0, 0%, 14%, 1);
+// $button: $button-color;
+// $button-bg: hsla(41, 100%, 55%, 1);
+// $button-color-hover: hsla(0, 0%, 14%, 1);
+// $button-bg-hover: $primary;
+// $button-active: $button-color;
+// $button-bg-active: $primary;
+// // $button-bg-disabled: color.grayscale($button-bg);
+// $button-bg-disabled: color.grayscale($button-bg);
 
 $checkbox-color: $secondary;
 $checkbox: $checkbox-color;
@@ -89,8 +95,9 @@ $checkbox-active: $checkbox-color;
 $checkbox-bg: hsla(0, 0%, 85%, 1);
 $checkbox-bg-disabled: color.grayscale($checkbox-bg);
 
-$bg-main: $secondary;
-$bg-section: $grey;
+$bg-main: hsl(0, 0%, 8%);
+$bg-black: $black;
+$bg-grey: $grey;
 
 $scrollbar-track: hsla(47, 2%, 31%, 1);
 $scrollbar-thumb: $primary;
@@ -100,7 +107,7 @@ $scrollbar-thumb: $primary;
     --color-primary: #{$primary};
     --color-text: #{$text};
     --color-bg-main: #{$bg-main};
-    --color-bg-section: #{$bg-section};
+    --color-bg-section: #{$bg-grey};
 
     // --swiper-theme-color: #{$primary};
 }

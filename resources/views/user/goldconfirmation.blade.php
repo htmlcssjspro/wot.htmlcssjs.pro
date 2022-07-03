@@ -25,7 +25,9 @@
                 <label for="paypal">PayPal</label>
             </div>
 
-            <button type="submit" class="btn btn_common">{{ __('Перейти к оплате') }}</button>
+            <x-form.submit>
+                {{ __('Перейти к оплате') }}
+            </x-form.submit>
         </form>
 
     </x-layout.main>

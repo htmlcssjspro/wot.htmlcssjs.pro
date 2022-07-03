@@ -33,11 +33,11 @@ const sliders = () => {
         speed:          500,
         centeredSlides: true,
         loop:           true,
-        autoplay:       {
-            delay:                2500,
-            disableOnInteraction: false,
-        },
-        navigation: {
+        // autoplay:       {
+        //     delay:                2500,
+        //     disableOnInteraction: false,
+        // },
+        navigation:     {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },

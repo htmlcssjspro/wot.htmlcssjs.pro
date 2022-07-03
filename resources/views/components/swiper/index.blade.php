@@ -7,22 +7,23 @@
     </div>
 
     @isset($pagination)
-        @if ($pagination === true)
-            <x-swiper.pagination />
+        @if ($pagination === 'pagination')
+            <div class="swiper-pagination"></div>
         @else
             {{ $pagination }}
         @endif
     @endisset
     @isset($navigation)
-        @if ($navigation === true)
-            <x-swiper.navigation />
+        @if ($navigation === 'navigation')
+            <x-swiper.btn-prev />
+            <x-swiper.btn-next />
         @else
             {{ $navigation }}
         @endif
     @endisset
     @isset($scrollbar)
-        @if ($scrollbar === true)
-            <x-swiper.scrollbar />
+        @if ($scrollbar === 'scrollbar')
+            <div class="swiper-scrollbar"></div>
         @else
             {{ $scrollbar }}
         @endif

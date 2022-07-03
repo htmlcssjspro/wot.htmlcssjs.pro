@@ -153,6 +153,8 @@ img {
     @extend %display-block;
     max-width: 100%;
     height: auto;
+    object-position: center;
+    object-fit: cover;
     border-style: none;
 }
 

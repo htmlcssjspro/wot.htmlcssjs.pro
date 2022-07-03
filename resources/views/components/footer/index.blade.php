@@ -12,7 +12,7 @@
     <x-navbar flex>
         <x-navbar.list group>
             <x-navbar.item>
-                <x-logo class="footer__logo" />
+                <x-logo class="logo_footer" />
             </x-navbar.item>
             <x-navbar.item>
                 <x-link value="Политика Конфидициальности" />
@@ -20,10 +20,18 @@
             <x-navbar.item>
                 <x-link value="Пользовательское соглашение" />
             </x-navbar.item>
+            <x-navbar.item>
+                <span class="t7 text-grey">
+                    <br>Все торговые марки, изображения и любые упоминания
+                    <br>имен брендов принадлежат их законным
+                    <br>правообладателям. *Ресурс работает в соответствии
+                    <br>с пользовательским соглашением.
+                </span>
+            </x-navbar.item>
         </x-navbar.list>
         <x-navbar.list group>
             <x-navbar.item>
-                <x-link value="Партнерам" />
+                <x-link value="Партнерам" class="text-grey" />
             </x-navbar.item>
             <x-navbar.item>
                 <x-link value="Реферальная программа для игроков" />
@@ -34,7 +42,7 @@
         </x-navbar.list>
         <x-navbar.list group>
             <x-navbar.item>
-                <x-link value="Помощь" />
+                <x-link value="Помощь" class="text-grey" />
             </x-navbar.item>
             <x-navbar.item>
                 <x-link value="Инструкции для игроков" />
@@ -45,7 +53,7 @@
         </x-navbar.list>
         <x-navbar.list group>
             <x-navbar.item>
-                <x-link value="Контакты" />
+                <x-link value="Контакты" class="text-grey" />
             </x-navbar.item>
             <x-navbar.item>
                 <x-link href="mailto:{{ $email }}" :value="$email" />
@@ -132,7 +140,7 @@
                 </x-navbar.list>
             </x-navbar.item>
             <x-navbar.item>
-                <x-button class="btn btn_common p-cell">
+                <x-button>
                     {{ __('Расскажите друзьям') }}
                 </x-button>
             </x-navbar.item>

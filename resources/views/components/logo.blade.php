@@ -1,11 +1,11 @@
 @props([
-    'logo' => 'https://via.placeholder.com/53.webp/FF974C/FFFFFF?text=Logo',
+    'logo' => 'https://via.placeholder.com/100.webp/FF974C/FFFFFF?text=Logo',
     'title' => 'Logo',
 ])
 
 <div {{ $attributes->class(['logo']) }}>
-    <a href="{{ route('home') }}">
+    <x-link href="{{ route('home') }}" class="flex">
         <img src="{{ $logo }}" alt="logo">
         <span>{{ $title }}</span>
-    </a>
+    </x-link>
 </div>

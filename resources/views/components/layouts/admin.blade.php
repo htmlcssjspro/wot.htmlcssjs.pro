@@ -31,9 +31,9 @@
                 @endphp
                 @foreach ($links as $route => $link)
                     <li>
-                        <a href="{{ route($route) }}" @class(['p-cell', 'active' => route($route) === url()->current()])>
+                        <x-link href="{{ route($route) }}" @class(['p-cell', 'active' => route($route) === url()->current()])>
                             {{ __($link) }}
-                        </a>
+                        </x-link>
                     </li>
                 @endforeach
             </ul>

@@ -2,19 +2,21 @@
 @use '@/config/viewport';
 @use '@/config/colors';
 @use '@/common/flex';
+@use '@/common/text';
 @use '@/components/logo';
 
 .footer {
     margin-top: viewport.$gap;
-    background-color: colors.$bg-section;
+    background-color: colors.$bg-grey;
+    background: url(../../images/bg/sparks-bottom.png) bottom repeat-x colors.$bg-grey;
+    mix-blend-mode: color-dodge;
+    @extend %fs-12;
 
     &.flex-item {
         margin-top: auto;
     }
 
     &__wrapper {
-        .flex {
-            @extend %flex-sb-c;
-        }
+        // padding-top: 21px;
     }
 }

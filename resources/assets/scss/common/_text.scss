@@ -1,3 +1,5 @@
+@use '@/config/colors';
+
 %text-align,
 %ta {
     &-left,
@@ -69,6 +71,9 @@
     }
 }
 
+%fs-7 {
+    font-size: 0.7rem;
+}
 %fs-12 {
     font-size: 1.2rem;
 }
@@ -87,6 +92,9 @@
 %fs-26 {
     font-size: 2.6rem;
 }
+%fs-28 {
+    font-size: 2.8rem;
+}
 %fs-30 {
     font-size: 3rem;
 }
@@ -94,6 +102,9 @@
     font-size: 6rem;
 }
 
+.t7 {
+    @extend %fs-7;
+}
 .t12 {
     @extend %fs-12;
 }
@@ -112,6 +123,9 @@
 .t26 {
     @extend %fs-26;
 }
+.t28 {
+    @extend %fs-28;
+}
 .t30 {
     @extend %fs-30;
 }
@@ -129,9 +143,17 @@
     &-500 {
         font-weight: 500;
     }
+    &-6,
+    &-600 {
+        font-weight: 600;
+    }
     &-7,
     &-700 {
         font-weight: 700;
+    }
+    &-9,
+    &-900 {
+        font-weight: 900;
     }
 }
 .fw {
@@ -141,7 +163,17 @@
     &-5 {
         @extend %font-weight-500;
     }
+    &-6 {
+        @extend %font-weight-600;
+    }
     &-7 {
         @extend %font-weight-700;
     }
+    &-9 {
+        @extend %font-weight-900;
+    }
+}
+
+.text-grey {
+    color: colors.$text-gray;
 }

@@ -17,8 +17,11 @@
 @use '@/icons/gold';
 
 .home.container {
-    margin-top: viewport.$gap;
+    font-size: 1.4rem;
+    // margin-top: viewport.$gap;
     margin-bottom: viewport.$gap;
+    padding-top: 2.5em;
+    background: url(../../images/bg/sparks-top.png) top repeat-x;
 
     & > .grid {
         @include grid.grid {
@@ -31,7 +34,7 @@
 .home.aside {
     font-size: 1.2rem;
     max-width: 345px;
-    background-color: colors.$bg-section;
+    background-color: colors.$bg-grey;
 
     .aside__top {
         @extend %flex-sb-c;
@@ -123,7 +126,7 @@
         @extend %flex-ai-c;
         // height: 53px;
         padding: 2rem;
-        background-color: colors.$bg-section;
+        background-color: colors.$bg-grey;
 
         & > :first-child {
             @extend .t20;
@@ -180,7 +183,7 @@ article.competition {
         padding: 1.5rem 1rem;
         color: colors.$text;
         font-size: 1.2rem;
-        background-color: colors.$bg-section;
+        background-color: colors.$bg-grey;
     }
 
     span {

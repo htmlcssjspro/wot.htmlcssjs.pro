@@ -3,9 +3,12 @@
 @use '@/config/colors';
 
 @use '@/common/flex';
+@use '@/common/position';
+@use '@/common/text';
 @use '@/common/indent';
 
 @use '@/components/logo';
+@use '@/components/link';
 @use '@/components/wot/navbar';
 @use '@/components/wot/dropdown';
 
@@ -13,23 +16,47 @@
 @use '@/icons/gold';
 
 .header {
+    // background: url(../../images/bg/bg-header.png) bottom repeat-x colors.$bg-main;
+    background: url(../../images/bg/bg-header.png) center/cover no-repeat;
+
     &__top {
+        padding: 1rem 0;
+        font-size: 1.4rem;
+        background-color: colors.$bg-black;
     }
-    &__bottom {
-        background-color: colors.$bg-section;
-    }
+
     &__wrapper {
     }
 
-    &__logo {
-        @include flex.flex(0, 0, 170px);
-    }
+    &__bottom {
+        // padding: 3.5rem 2.7rem 3.2rem 2.6rem;
+        font-size: 1.8rem;
+        background-color: colors.$bg-grey;
 
-    &__link {
-        margin: 0 0.5em;
-    }
+        .link {
+            padding: 1.5em;
 
-    &__btn {
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+
+            &.active {
+                @extend %pos-r;
+                color: colors.$primary;
+                border-bottom-color: colors.$primary;
+
+                &::before {
+                    content: '';
+                    @extend %pos-a-full;
+                    border-radius: 50%;
+                    background: hsla(41, 100%, 55%, 0.1);
+                    // opacity: 0.1;
+                    filter: blur(28px);
+                }
+            }
+            &:hover {
+                color: hsla(0, 0%, 74%, 1);
+            }
+        }
     }
 
     .user {
@@ -42,5 +69,58 @@
         .name {
             display: inline-block;
         }
+    }
+}
+
+.swiper.header-slider {
+    height: 488px;
+
+    .swiper-slide {
+        @extend %pos-r;
+
+        padding: 69px 112px;
+
+        img {
+            @extend %pos-a-full;
+            z-index: -1;
+            // height: 100%;
+        }
+
+        .title {
+            font-size: 6.4rem;
+            font-weight: 900;
+            white-space: pre-wrap;
+        }
+
+        .btn_slider {
+            @extend %fs-28;
+            @extend %fw-600;
+            @extend .p-cell;
+            margin-top: 0.5em;
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        top: auto;
+        bottom: 30px;
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        background-color: hsla(0, 0%, 23%, 0.8);
+
+        &::after {
+            content: '';
+        }
+    }
+
+    .swiper-button-prev {
+        left: auto;
+        right: 140px;
+    }
+
+    .swiper-button-next {
+        left: auto;
+        right: 45px;
     }
 }

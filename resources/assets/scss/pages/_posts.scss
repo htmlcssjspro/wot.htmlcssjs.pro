@@ -23,7 +23,7 @@
     @extend %fs-20;
     .main__top {
         padding-top: 20rem;
-        background-color: colors.$bg-section;
+        background-color: colors.$bg-grey;
     }
 }
 
@@ -62,7 +62,7 @@
     &__block {
         flex: 1 1;
         min-height: 22rem;
-        background-color: colors.$bg-section;
+        background-color: colors.$bg-grey;
     }
 }
 
@@ -152,7 +152,7 @@
             }
             tbody tr:nth-child(odd) {
                 // background-color: colors.$bg-main;
-                background-color: colors.$bg-section;
+                background-color: colors.$bg-grey;
             }
             tr {
                 th,

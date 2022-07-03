@@ -30,6 +30,8 @@ mix.js('resources/assets/js/admin.js', 'js');
 mix.sass('resources/assets/scss/app.scss', 'css', []);
 mix.sass('resources/assets/scss/admin.scss', 'css', []);
 
+// mix.copy('resources/assets/svg/sprite.svg', 'public/images');
+
 // mix.postCss('resources/assets/css/app-pure.css', 'css', []);
 
 mix.sourceMaps();

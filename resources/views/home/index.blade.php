@@ -204,9 +204,9 @@
                 </fieldset>
 
                 <fieldset form="filter" class="form__submit">
-                    <button type="submit" form="filter" class="btn btn_common btn_center">
+                    <x-form.submit form="filter" class="btn_center">
                         {{ __('Сохранить') }}
-                    </button>
+                    </x-form.submit>
                 </fieldset>
 
             </form>

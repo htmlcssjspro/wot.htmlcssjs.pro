@@ -3,7 +3,7 @@ $family: Inter !default;
 
 //* font-weights list;
 $font-weights: (100, 200, 300, 400, 500, 600, 700, 800, 900);
-$font-weights: (400, 500, 700);
+$font-weights: (400, 500, 600, 700, 900);
 
 $weight-lighter: lighter !default;
 $weight-bolder: bolder !default;
@@ -11,13 +11,13 @@ $weight-bolder: bolder !default;
 @mixin font-face($family) {
     $font-weight-list: (
         100: 'Thin',
-        200: 'UltraLight',
+        200: 'ExtraLight',
         300: 'Light',
         400: 'Regular',
         500: 'Medium',
         600: 'SemiBold',
         700: 'Bold',
-        800: 'UltraBold',
+        800: 'ExtraBold',
         900: 'Black',
     );
 
@@ -29,8 +29,9 @@ $weight-bolder: bolder !default;
             font-weight: $weight;
             font-style: normal;
             src: local('#{$family}-#{$weight-v}'), local('#{$family} #{$weight-v}'),
-                url('/public/fonts/#{$family}/#{$family}-#{$weight-v}.woff2') format('woff2'),
-                url('/public/fonts/#{$family}/#{$family}-#{$weight-v}.ttf') format('truetype');
+                url('/fonts/#{$family}/#{$family}-#{$weight-v}.woff2') format('woff2'),
+                url('/fonts/#{$family}/#{$family}-#{$weight-v}.woff') format('woff'),
+                url('/fonts/#{$family}/#{$family}-#{$weight-v}.ttf') format('truetype');
         }
     }
 }

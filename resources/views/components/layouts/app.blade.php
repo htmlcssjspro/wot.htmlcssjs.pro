@@ -12,8 +12,8 @@
 
     <x-footer />
 
-    @env('local')
+    {{-- @env('local')
     <x-layout.design-grid />
-    @endenv
+    @endenv --}}
 
 </x-layouts.clean>

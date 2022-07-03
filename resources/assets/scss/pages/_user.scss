@@ -22,7 +22,7 @@
     }
 
     .btn_tab.active {
-        background-color: colors.$bg-section;
+        background-color: colors.$bg-grey;
     }
 
     a.nav-link {
@@ -37,7 +37,7 @@
 
     .main__wrapper {
         padding: viewport.$gap;
-        background-color: colors.$bg-section;
+        background-color: colors.$bg-grey;
     }
 
     .tab-content {
@@ -110,7 +110,7 @@
     @extend %fs-20;
 
     .main__top {
-        background-color: colors.$bg-section;
+        background-color: colors.$bg-grey;
         padding: viewport.$gap;
 
         .flex {
@@ -159,7 +159,7 @@
 
 .goldconfirmation {
     @extend %fs-20;
-    background-color: colors.$bg-section;
+    background-color: colors.$bg-grey;
     padding: viewport.$gap;
 
     span {
