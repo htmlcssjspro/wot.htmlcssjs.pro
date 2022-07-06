@@ -81,10 +81,20 @@
                         <x-link href="{{ route('user.profile') }}" value="Личный кабинет" class="user-icon" />
                     </x-navbar.item>
                     <x-navbar.item>
-                        <span class="name">{{ auth()->user()->nickname }}</span>
+                        @auth
+                            <span class="name">{{ auth()->user()->nickname }}</span>
+                        @endauth
+                        @guest
+                            <span class="name">Nickname</span>
+                        @endguest
                     </x-navbar.item>
                     <x-navbar.item>
-                        <span class="gold">{{ auth()->user()->balance->total }}</span>
+                        @auth
+                            <span class="gold">{{ auth()->user()->balance->total }}</span>
+                        @endauth
+                        @guest
+                            <span class="gold">0</span>
+                        @endguest
                     </x-navbar.item>
                     <x-navbar.item>
                         <x-link href="{{ route('user.buygold') }}" value="Пополнение счета" class="btn btn_main" />
