@@ -15,11 +15,15 @@
     {{-- @livewireStyles --}}
     <livewire:styles />
     @stack('vendor-styles')
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
+    {{-- @vite('resources/assets/scss/app.scss') --}}
+    @tag('resources/assets/scss/app.scss')
     @stack('styles')
 
     @stack('vendor-scripts')
-    <script defer src="{{ mix('js/app.js') }}"></script>
+    {{-- <script defer src="{{ mix('js/app.js') }}"></script> --}}
+    {{-- @vite('resources/assets/js/app.js') --}}
+    @tag('resources/assets/js/app.js')
     @stack('scripts')
 </head>
 

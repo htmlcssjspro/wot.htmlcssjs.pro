@@ -3,10 +3,12 @@
 <x-layouts.clean meta-title="Панель администратора" meta-description="Панель администратора" class="flex">
 
     @push('styles')
-        <link rel="stylesheet" href="{{ mix('css/admin.css') }}">
+        {{-- <link rel="stylesheet" href="{{ mix('css/admin.css') }}"> --}}
+        @vite('resourses/assets/scss/admin.scss')
     @endpush
     @push('scripts')
-        <script defer src="{{ mix('js/admin.js') }}"></script>
+        {{-- <script defer src="{{ mix('js/admin.js') }}"></script> --}}
+        @vite('resourses/assets/js/admin.js')
     @endpush
 
 

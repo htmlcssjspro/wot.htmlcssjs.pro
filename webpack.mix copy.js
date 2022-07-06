@@ -23,32 +23,25 @@ mix.alias({
 mix.webpackConfig({
     target: ['web', 'es6']
 });
-mix.babelConfig({
-    ignore: [ path.join(__dirname, 'resources/assets') ]
-});
-
-// mix.options({});
-
-// mix.override(webpackConfig => {
-
-//     // webpackConfig.module.rules[4] = {};
-//     console.log('webpackConfig: ', webpackConfig);
-//     console.log('webpackConfig.plugins: ', webpackConfig.plugins);
-
-//     console.log('webpackConfig.module.rules: ', webpackConfig.module.rules);
-
-//     console.log('webpackConfig.module.rules[4].use[0]: ', webpackConfig.module.rules[4].use[0]);
-//     // console.log('webpackConfig.module.rules[4].use[0].options.presets: ', webpackConfig.module.rules[4].use[0].options.presets);
-//     // console.log('webpackConfig.module.rules[4].use[0].options.plugins: ', webpackConfig.module.rules[4].use[0].options.plugins);
-// });
 
 mix.js('resources/assets/js/app.js', 'js');
-
-// mix.postCss('resources/assets/css/app-pure.css', 'css', []);
+mix.js('resources/assets/js/admin.js', 'js');
 
 mix.sass('resources/assets/scss/app.scss', 'css', []);
+mix.sass('resources/assets/scss/admin.scss', 'css', []);
+
+// mix.copy('resources/assets/svg/sprite.svg', 'public/images');
+
+// mix.postCss('resources/assets/css/app-pure.css', 'css', []);
 
 mix.sourceMaps();
 mix.version();
 
-mix.dump();
+// mix.dump();
+
+
+// breeze
+// mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
+//     require('tailwindcss'),
+//     require('autoprefixer'),
+// ]);

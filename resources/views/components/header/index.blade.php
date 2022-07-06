@@ -70,8 +70,14 @@
                     </x-navbar.item>
                     <x-navbar.item>
                         <div class="user">
-                            <span class="name">{{ auth()->user()->nickname }}</span>
-                            <span class="gold">{{ auth()->user()->balance->total }}</span>
+                            @auth
+                                <span class="name">{{ auth()->user()->nickname }}</span>
+                                <span class="gold">{{ auth()->user()->balance->total }}</span>
+                            @endauth
+                            @guest
+                                <span class="name">Nickname</span>
+                                <span class="gold">0</span>
+                            @endguest
                         </div>
                     </x-navbar.item>
                     <x-navbar.item>
