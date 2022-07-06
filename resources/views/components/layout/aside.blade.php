@@ -1,21 +1,15 @@
-@props(['top', 'bottom', 'flex' => false, 'grid' => false])
+@props(['top' => null, 'bottom' => null])
 
-<aside {{ $attributes->class(['aside'])->merge(['id' => 'aside']) }}>
+<x-layout.container {{ $attributes->merge(['id' => 'aside']) }} tag="aside" master="aside">
 
-    @isset($top)
-        <div {{ $top->attributes->class(['aside__top']) }}>
-            {{ $top }}
-        </div>
-    @endisset
+    <x-slot:top>
+        {{ $top }}
+    </x-slot:top>
 
-    <div @class(['aside__wrapper', 'flex' => $flex, 'grid' => $grid])>
-        {{ $slot }}
-    </div>
+    {{ $slot }}
 
-    @isset($bottom)
-        <div {{ $bottom->attributes->class(['aside__bottom']) }}>
-            {{ $bottom }}
-        </div>
-    @endisset
+    <x-slot:bottom>
+        {{ $bottom }}
+    </x-slot:bottom>
 
-</aside>
+</x-layout.container>

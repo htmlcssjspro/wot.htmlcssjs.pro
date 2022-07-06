@@ -1,12 +1,10 @@
 @use '@/config/viewport';
 @use '@/common/grid';
 
-.aside {
-    @include grid.grid-area(aside);
+.aside.filter {
+    @include grid.grid-area(filter);
+}
 
-    @extend %container;
-
-    &__wrapper {
-        @extend %wrapper;
-    }
+.aside.filters {
+    @include grid.grid-area(filters);
 }

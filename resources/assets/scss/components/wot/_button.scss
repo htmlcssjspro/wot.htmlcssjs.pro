@@ -1,27 +1,16 @@
 @use 'sass:color';
 @use '@/config/colors';
 @use '@/common/flex';
+@use '@/common/indent';
 @use '@/components/button';
 
-$button-color: hsla(0, 0%, 14%, 1);
-$button: $button-color;
-$button-bg: hsla(41, 100%, 55%, 1);
-$button-color-hover: hsla(0, 0%, 14%, 1);
-$button-bg-hover: $button-bg;
-$button-active: $button-color;
-$button-bg-active: $button-bg;
-// $button-bg-disabled: color.grayscale($button-bg);
-$button-bg-disabled: color.grayscale($button-bg);
-
 $border-radius: 2px;
-
-$box-shadow: 0px 4px 10px 0px hsla(50, 100%, 50%, 0.13);
 
 .btn {
     font-size: 1.4rem;
     padding: 1em 1.25em;
-    color: hsl(0, 0%, 14%);
-    background-color: hsl(41, 100%, 55%);
+    color: colors.$button;
+    background-color: colors.$button-bg;
     border: 1px solid;
 
     border-image-slice: 1;
@@ -30,34 +19,32 @@ $box-shadow: 0px 4px 10px 0px hsla(50, 100%, 50%, 0.13);
     border-radius: 2px;
 
     &:hover {
-        box-shadow: $box-shadow;
+        color: colors.$button-hover;
+        background-color: colors.$button-bg-hover;
+        box-shadow: colors.$button-box-shadow;
     }
 
     &:active {
-        background: hsl(41, 100%, 46%);
-        box-shadow: $box-shadow;
+        color: colors.$button-active;
+        background-color: colors.$button-bg-active;
+        box-shadow: colors.$button-box-shadow;
     }
 
     &:disabled {
-        background-color: hsl(45, 5%, 85%);
-        border: 1px solid hsl(0, 0%, 71%);
-        box-shadow: $box-shadow;
+        color: colors.$button-disabled;
+        background-color: colors.$button-bg-disabled;
+        border-color: colors.$button-border-disabled;
+        box-shadow: colors.$button-box-shadow;
     }
 
-    // &_common {
-    //     font-size: 1.4rem;
-    //     color: colors.$button-color;
-    //     background-color: colors.$button-bg;
-    // }
-
-    // &_border {
-    //     border: 1px solid colors.$button-bg;
-    // }
-
     &_main {
-        padding: 0.5em 1em;
+        padding: 0.4em 1em;
         color: colors.$text-white;
         background: linear-gradient(180deg, hsl(27, 98%, 50%) -32.61%, hsl(11, 85%, 36%) 100%);
+
+        &:hover {
+            color: colors.$text-white;
+        }
     }
 
     &_center {
@@ -66,5 +53,17 @@ $box-shadow: 0px 4px 10px 0px hsla(50, 100%, 50%, 0.13);
 
     &_full {
         width: 100%;
+    }
+
+    &_unset {
+        padding: 0;
+        color: unset;
+        background: unset;
+        border: none;
+        border-radius: 0;
+        &:active {
+            background: unset;
+            box-shadow: unset;
+        }
     }
 }

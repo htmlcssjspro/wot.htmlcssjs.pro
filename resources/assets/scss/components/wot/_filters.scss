@@ -1,6 +1,30 @@
 @use '@/config/colors';
 @use '@/common/flex';
+@use '@/svg/svg-symbol';
 @use '@/icons/svg-icons';
+
+@use '@/components/wot/filter';
+
+.filters {
+    @extend %fs-14;
+
+    &__wrapper {
+        padding: 1em;
+    }
+
+    &__top {
+        min-height: 60px;
+
+        background: colors.$bg-grey;
+        box-shadow: colors.$box-shadow-grey;
+        border-radius: 5px;
+    }
+
+    .flex,
+    .grid {
+        gap: 0.5em;
+    }
+}
 
 .filter-tag {
     @extend %flex-ai-c;

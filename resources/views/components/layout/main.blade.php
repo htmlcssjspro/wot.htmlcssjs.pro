@@ -1,19 +1,10 @@
-@props(['topContent', 'topWrapper', 'bottomContent', 'bottomWrapper', 'wrapper', 'flex' => false, 'grid' => false])
+@props(['top', 'bottom', 'wrapper', 'flex' => false, 'grid' => false])
 
 <main {{ $attributes->class(['main'])->merge(['id' => 'main']) }}>
 
-    @isset($topContent)
-        <div {{ $topContent->attributes->class(['content', 'main__top']) }}>
-            {{ $topContent }}
-        </div>
+    @isset($top)
+        {{ $top }}
     @endisset
-
-    @isset($topWrapper)
-        <div {{ $topWrapper->attributes->class(['wrapper', 'main__top']) }}>
-            {{ $topWrapper }}
-        </div>
-    @endisset
-
 
     @isset($wrapper)
         <x-layout.wrapper master="main" :flex="$flex" :grid="$grid">
@@ -24,16 +15,8 @@
     @endisset
 
 
-    @isset($bottomWrapper)
-        <div {{ $bottomWrapper->attributes->class(['wrapper', 'main__bottom']) }}>
-            {{ $bottomWrapper }}
-        </div>
-    @endisset
-
-    @isset($bottomContent)
-        <div {{ $bottomContent->attributes->class(['content', 'main__bottom']) }}>
-            {{ $bottomContent }}
-        </div>
+    @isset($bottom)
+        {{ $bottom }}
     @endisset
 
 </main>

@@ -1,5 +1,5 @@
-@props(['value' => null])
+@props(['value' => null, 'flex' => false, 'grid' => false])
 
-<label {{ $attributes }}>
+<label {{ $attributes->class(['flex' => $flex, 'grid' => $grid]) }}>
     {{ $value ? __($value) : $slot }}
 </label>

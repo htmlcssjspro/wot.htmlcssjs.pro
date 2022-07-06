@@ -3,7 +3,7 @@
 @use '@/common/flex';
 @use '@/common/text';
 
-.form {
+.auth-form {
     @extend %fs-20;
 
     input {
@@ -13,20 +13,17 @@
             outline: 1px auto colors.$primary;
         }
     }
+    width: 40rem;
+    margin: viewport.$gap auto;
 
-    &_auth {
-        width: 40rem;
-        margin: viewport.$gap auto;
+    .form__errors + label,
+    label + label {
+        margin-top: 2em;
+    }
 
-        .form__errors + label,
-        label + label {
-            margin-top: 2em;
-        }
-
-        label.flex {
-            gap: 1em;
-            @extend %flex-ai-c;
-        }
+    label.flex {
+        gap: 1em;
+        @extend %flex-ai-c;
     }
 
     &__submit {

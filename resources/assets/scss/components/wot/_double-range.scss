@@ -1,19 +1,28 @@
+@use '@/config/colors';
 @use '@/common/flex';
+@use '@/common/text';
 
 .double-range {
     &__labels {
-        // font-size: 2rem;
+        &.flex {
+            @extend %flex-ai-c;
+        }
+    }
+
+    &__label {
+        width: 4em;
+        @extend .ta-c;
     }
 
     &__inputs {
         $track-thick: 6px;
-        $track-color: hsl(234, 100%, 65%);
+        $track-color: colors.$primary;
 
-        $thumb-size: 20px;
-        $thumb-color: hsl(234, 100%, 65%);
+        $thumb-size: 18px;
+        $thumb-color: colors.$primary;
 
         $bg-thick: 6px;
-        $bg-color: hsl(0, 0%, 85%);
+        $bg-color: colors.$bg-main;
 
         $rounded: false;
 
@@ -21,7 +30,7 @@
         --track-left: 0%;
         --track-right: 0%;
 
-        @mixin br($br) {
+        @mixin border-radius($br) {
             @if $rounded {
                 border-radius: $br;
             }
@@ -33,7 +42,7 @@
         height: $thumb-size;
         margin: $thumb-size 0;
         padding: $thumb-size 0;
-        @include br($thumb-size);
+        @include border-radius($thumb-size);
         background-color: transparent;
 
         &::before,
@@ -50,8 +59,8 @@
             right: 3px;
 
             height: $bg-thick;
-            @include br($bg-thick);
             background-color: $bg-color;
+            @include border-radius($bg-thick);
         }
 
         &::after {
@@ -75,34 +84,40 @@
             position: absolute;
             left: 0;
             right: 0;
+            z-index: 10;
 
             // top: 50%;
             // transform: translateY(-50%);
 
             display: block;
-            overflow: hidden;
+            // overflow: hidden;
             width: 100%;
             height: $thumb-size;
-            @include br($thumb-size);
             margin: 0;
             padding: 0;
             pointer-events: all;
             cursor: pointer;
             background-color: transparent;
+            @include border-radius($thumb-size);
 
             @mixin track {
                 @include common();
                 height: $thumb-size;
-                @include br($thumb-size);
                 background-color: transparent;
+                @include border-radius($thumb-size);
             }
 
             @mixin thumb {
                 @include common();
                 width: $thumb-size;
                 height: $thumb-size;
+
+                border: 3.6px solid colors.$bg-main;
                 border-radius: 50%;
+
                 background-color: $thumb-color;
+                box-shadow: colors.$box-shadow;
+                filter: colors.$filter-drop-shadow;
             }
 
             &::-webkit-slider-runnable-track {

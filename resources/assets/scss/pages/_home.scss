@@ -6,173 +6,119 @@
 @use '@/common/grid';
 @use '@/common/text';
 
+@use '@/layout/aside';
+@use '@/layout/main';
+
 @use '@/components/wot/article';
 @use '@/components/wot/button';
-@use '@/components/wot/checkbox';
-@use '@/components/wot/double-range';
 @use '@/components/wot/dropdown';
-@use '@/components/wot/filter-tag';
-@use '@/components/wot/flag';
+@use '@/components/wot/filter';
+@use '@/components/wot/filters';
 
 @use '@/icons/gold';
 
-.home.container {
-    font-size: 1.4rem;
-    // margin-top: viewport.$gap;
-    margin-bottom: viewport.$gap;
-    padding-top: 2.5em;
-    background: url(../../images/bg/sparks-top.png) top repeat-x;
-
-    & > .grid {
-        @include grid.grid {
-            gap: 20px;
-            grid-template: 'aside main' 1fr / 345px 1fr;
-        }
+.home {
+    &.container {
+        font-size: 1.4rem;
+        background: url(../../images/bg/sparks-top.png) top repeat-x;
     }
-}
 
-.home.aside {
-    font-size: 1.2rem;
-    max-width: 345px;
-    background-color: colors.$bg-grey;
+    &__wrapper {
+        margin-bottom: viewport.$gap;
+        padding-top: 3.5rem;
 
-    .aside__top {
-        @extend %flex-sb-c;
-        @extend .t20;
-        margin-bottom: 1em;
-        padding: 1rem 2rem;
-        border-bottom: 1px solid colors.$text;
-
-        button {
-            padding-right: 0;
-            &[disabled] {
-                color: colors.$text-disabled;
+        &.grid {
+            @include grid.grid {
+                gap: 20px;
+                grid-template:
+                    'filter filters' auto
+                    'filter main' 1fr
+                    / 345px 1fr;
             }
         }
     }
 
-    .aside__wrapper {
-        padding: 0 2rem;
-    }
+    .aside {
+        @extend %fs-14;
+        border-radius: 5px;
+        overflow: hidden;
 
-    fieldset {
-        margin: 1em 0;
+        &.filter {
+            max-width: 345px;
+        }
 
-        legend {
-            @extend .t20;
-            @extend %fw-500;
-            margin-bottom: 0.6em;
+        &.filters {
+        }
+
+        .aside__top {
+        }
+
+        .aside__wrapper {
         }
     }
 
-    .checkbox {
-        margin: 0;
+    .main {
+        font-size: 1.2rem;
 
-        &__label {
-        }
-    }
-
-    .flex,
-    .grid {
-        gap: 0.5em;
-    }
-
-    .nation .dropdown-filter__content.grid {
-        grid-template: repeat(6, auto) / repeat(2, 1fr);
-        grid-auto-flow: column;
-    }
-
-    .level .dropdown-filter__content.flex {
-        @extend %flex-sb-c;
-        @extend %flex-ff-r-w;
-        // flex-flow: row wrap;
-        .checkbox {
-            flex: 1 0 17%;
-        }
-    }
-
-    .v-type .dropdown-filter__content.flex {
-        @extend %flex-sb-c;
-    }
-
-    .task-type,
-    .availability,
-    .cost,
-    .duration,
-    .prize,
-    .task-super {
-        .dropdown-filter__content.flex {
-            @extend %flex-ff-cl;
-        }
-    }
-
-    .form__submit {
-        margin-top: 3.5rem;
-        margin-bottom: 2.5rem;
-    }
-}
-
-.home.main {
-    font-size: 1.2rem;
-
-    .main__wrapper.grid {
-        @include grid.grid {
-            gap: 61px 20px;
-            grid-template: repeat(5, auto) / repeat(3, minmax(auto, 345px));
-        }
-    }
-
-    .filters {
-        @extend %flex-ai-c;
-        // height: 53px;
-        padding: 2rem;
-        background-color: colors.$bg-grey;
-
-        & > :first-child {
-            @extend .t20;
-            margin-right: 2em;
+        .main__wrapper.grid {
+            @include grid.grid {
+                gap: 61px 20px;
+                grid-template: repeat(5, auto) / repeat(3, minmax(auto, 345px));
+            }
         }
 
-        &__wrapper {
+        .filters {
             @extend %flex-ai-c;
-        }
-    }
+            // height: 53px;
+            padding: 2rem;
+            background-color: colors.$bg-grey;
 
-    .sorting {
-        @extend %flex-ai-c;
-        padding: 0.5em calc(2rem - 2em) 1rem;
-    }
+            & > :first-child {
+                @extend .t20;
+                margin-right: 2em;
+            }
 
-    .pagination {
-        @extend %flex-row-c;
-        gap: 2em;
-        margin: 6.5rem 0;
-        @extend .t20;
-        button {
-            background-color: transparent;
+            &__wrapper {
+                @extend %flex-ai-c;
+            }
         }
 
-        .prev,
-        .next {
-            width: 11px;
-            height: 19px;
-            padding: 0;
+        .sorting {
+            @extend %flex-ai-c;
+            padding: 0.5em calc(2rem - 2em) 1rem;
         }
-        .prev {
-            @extend %svg-caret-left;
-        }
-        .next {
-            @extend %svg-caret-right;
-        }
-        .page {
-            // @extend %flex-c;
-            @extend %ta-c;
-            @extend %va-m;
-            width: 48px;
-            height: 45px;
 
-            &.active {
-                background-color: colors.$primary;
+        .pagination {
+            @extend %flex-row-c;
+            gap: 2em;
+            margin: 6.5rem 0;
+            @extend .t20;
+            button {
+                background-color: transparent;
+            }
+
+            .prev,
+            .next {
+                width: 11px;
+                height: 19px;
+                padding: 0;
+            }
+            .prev {
+                @extend %svg-caret-left;
+            }
+            .next {
+                @extend %svg-caret-right;
+            }
+            .page {
+                // @extend %flex-c;
+                @extend %ta-c;
+                @extend %va-m;
+                width: 48px;
+                height: 45px;
+
+                &.active {
+                    background-color: colors.$primary;
+                }
             }
         }
     }

@@ -1,16 +1,23 @@
-@props(['master' => null, 'wrapper' => false, 'flex' => false, 'grid' => false])
-@aware(['master', 'wrapper', 'flex', 'grid'])
+{{-- @aware(['master', 'wrapper', 'flex', 'grid']) --}}
+@aware(['master', 'wrapper'])
+@props([
+    'master' => null,
+    'wrapper' => false,
+    'block' => false,
+    'flex' => false,
+    'grid' => false,
+])
 
 <div
     {{ $attributes->class([
         'content',
         $master . '__content' => $master,
-        'flex' => $flex && !$wrapper,
-        'grid' => $grid && !$wrapper,
+        'flex' => $flex && !$wrapper && !$block,
+        'grid' => $grid && !$wrapper && !$block,
     ]) }}>
 
     @if ($wrapper)
-        <x-layout.wrapper>
+        <x-layout.wrapper :flex="$flex" :grid="$grid">
             {{ $slot }}
         </x-layout.wrapper>
     @else

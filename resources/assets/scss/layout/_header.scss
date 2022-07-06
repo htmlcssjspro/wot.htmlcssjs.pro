@@ -12,6 +12,7 @@
 @use '@/components/wot/navbar';
 @use '@/components/wot/dropdown';
 
+@use '@/svg/svg-symbol';
 @use '@/icons/svg-icons';
 @use '@/icons/gold';
 
@@ -19,10 +20,72 @@
     // background: url(../../images/bg/bg-header.png) bottom repeat-x colors.$bg-main;
     background: url(../../images/bg/bg-header.png) center/cover no-repeat;
 
+    .navbar {
+        &.flex {
+            @extend %flex-sb-c;
+        }
+
+        &__group {
+            flex: 1 0 50%;
+
+            &.flex {
+                @extend %flex-sb-c;
+                gap: 2.5rem;
+            }
+
+            &_left > .navbar__item:last-child {
+                margin-left: auto;
+            }
+
+            &_right > .navbar__item:first-child {
+                margin-left: 3.2rem;
+                margin-right: auto;
+            }
+        }
+
+        & > .navbar__list {
+            @extend %flex-sb-c;
+        }
+
+        &__list {
+        }
+        &__item {
+        }
+    }
+
     &__top {
         padding: 1rem 0;
         font-size: 1.4rem;
         background-color: colors.$bg-black;
+
+        .navbar {
+            & .dropdown__toggle,
+            & .dropdown-menu__toggle {
+                @extend %svg-arrow-down_right;
+            }
+        }
+    }
+
+    .user-nav {
+        &.flex {
+            @extend %flex-ai-c;
+            gap: 2em;
+        }
+
+        .flex {
+            gap: 0.5em;
+            @extend %flex-ai-c;
+        }
+
+        .profile {
+            .svg-symbol {
+                fill: colors.$text-white;
+            }
+        }
+        .nickname {
+        }
+        .balance {
+        }
     }
 
     &__wrapper {
@@ -32,6 +95,17 @@
         // padding: 3.5rem 2.7rem 3.2rem 2.6rem;
         font-size: 1.8rem;
         background-color: colors.$bg-grey;
+
+        .navbar {
+            & .dropdown__toggle,
+            & .dropdown-menu__toggle {
+                @extend %svg-arrow-down_right-big;
+            }
+
+            & > .navbar__list {
+                @extend %flex-sa-c;
+            }
+        }
 
         .link {
             padding: 1.5em;
@@ -56,18 +130,6 @@
             &:hover {
                 color: hsla(0, 0%, 74%, 1);
             }
-        }
-    }
-
-    .user {
-        font-weight: 500;
-
-        &-icon {
-            @extend %svg-user_left;
-        }
-
-        .name {
-            display: inline-block;
         }
     }
 }
@@ -111,6 +173,12 @@
 
         &::after {
             content: '';
+        }
+
+        .svg-symbol {
+            width: 21px;
+            height: 37px;
+            fill: colors.$white;
         }
     }
 

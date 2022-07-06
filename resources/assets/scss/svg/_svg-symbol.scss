@@ -1,0 +1,7 @@
+@use '@/config/colors';
+
+.svg-symbol {
+    fill: colors.$primary;
+    width: 1.5em;
+    height: 1em;
+}

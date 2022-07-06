@@ -3,16 +3,10 @@
 
 .main {
     @include grid.grid-area(main);
-    @extend %container;
 
     margin-bottom: viewport.$gap;
 
     &__wrapper {
-        @extend %wrapper;
         min-height: 60rem;
     }
 }
-
-// .main__top + .main__wrapper {
-//     margin-top: viewport.$gap;
-// }

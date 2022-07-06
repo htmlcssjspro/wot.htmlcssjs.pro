@@ -43,22 +43,34 @@
                     @endguest
                     @auth
                         <x-navbar.item>
-                            <x-link href="{{ route('user.profile') }}" value="Личный кабинет" class="user-icon" />
-                        </x-navbar.item>
-                        <x-navbar.item>
-                            <div class="user">
-                                <span class="name">{{ auth()->user()->nickname }}</span>
-                                <span class="gold">{{ auth()->user()->balance->total }}</span>
-                            </div>
-                        </x-navbar.item>
-                        <x-navbar.item>
-                            <x-link href="{{ route('user.buygold') }}" value="Пополнение счета" class="btn btn_main" />
+                            <x-navbar.list class="user-nav flex">
+
+                                <x-navbar.item class="profile flex">
+                                    <x-svg-symbol href="#user" />
+                                    <x-link href="{{ route('user.profile') }}" value="Личный кабинет" />
+                                </x-navbar.item>
+
+                                <x-navbar.item class="nickname flex">
+                                    <span class="name">{{ auth()->user()->nickname }}</span>
+                                </x-navbar.item>
+
+                                <x-navbar.item class="balance flex">
+                                    <x-svg-symbol href="#igold" />
+                                    <span>{{ auth()->user()->balance->total }}</span>
+                                </x-navbar.item>
+
+                                <x-navbar.item>
+                                    <x-link href="{{ route('user.buygold') }}" value="Пополнение счета"
+                                        class="btn btn_main" />
+                                </x-navbar.item>
+
+                            </x-navbar.list>
                         </x-navbar.item>
                     @endauth
                 </x-navbar.list>
             </x-navbar>
-            <x-navbar class="navbar_top" flex>
-                <x-navbar.list group="right">
+            <x-navbar>
+                <x-navbar.list>
                     <x-navbar.item>
                         <x-link href="{{ route('login') }}" value="Вход" class="btn btn_main" />
                     </x-navbar.item>
@@ -69,10 +81,10 @@
                         <x-link href="{{ route('user.profile') }}" value="Личный кабинет" class="user-icon" />
                     </x-navbar.item>
                     <x-navbar.item>
-                        <div class="user">
-                            <span class="name">{{ auth()->user()->nickname }}</span>
-                            <span class="gold">{{ auth()->user()->balance->total }}</span>
-                        </div>
+                        <span class="name">{{ auth()->user()->nickname }}</span>
+                    </x-navbar.item>
+                    <x-navbar.item>
+                        <span class="gold">{{ auth()->user()->balance->total }}</span>
                     </x-navbar.item>
                     <x-navbar.item>
                         <x-link href="{{ route('user.buygold') }}" value="Пополнение счета" class="btn btn_main" />

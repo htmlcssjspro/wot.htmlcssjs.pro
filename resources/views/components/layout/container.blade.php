@@ -5,6 +5,7 @@
     'bottom',
     'content' => false,
     'wrapper' => false,
+    'block' => false,
     'flex' => false,
     'grid' => false,
 ])
@@ -16,11 +17,11 @@
     @endisset
 
     @if ($content)
-        <x-layout.content>
+        <x-layout.content :flex="$flex" :grid="$grid">
             {{ $slot }}
         </x-layout.content>
     @elseif($wrapper)
-        <x-layout.wrapper>
+        <x-layout.wrapper :flex="$flex" :grid="$grid">
             {{ $slot }}
         </x-layout.wrapper>
     @else

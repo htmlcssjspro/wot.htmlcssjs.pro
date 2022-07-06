@@ -1,7 +1,19 @@
-@props(['master' => null, 'flex' => false, 'grid' => false])
-@aware(['master', 'flex', 'grid'])
+{{-- @aware(['master', 'flex', 'grid']) --}}
+@aware(['master'])
+@props([
+    'master' => null,
+    'block' => false,
+    'flex' => false,
+    'grid' => false,
+])
 
-<div {{ $attributes->class(['wrapper', $master . '__wrapper' => $master, 'flex' => $flex, 'grid' => $grid]) }}>
+<div
+    {{ $attributes->class([
+        'wrapper',
+        $master . '__wrapper' => $master,
+        'flex' => $flex && !$block,
+        'grid' => $grid && !$block,
+    ]) }}>
     {{ $slot }}
 </div>
 

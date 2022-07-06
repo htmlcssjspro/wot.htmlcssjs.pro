@@ -2,9 +2,8 @@
 
 <div {{ $attributes->class(['double-range'])->merge(['id' => $id]) }}>
     <div class="double-range__labels flex">
-        <span>{{ __('От') }}</span>
         <label for="{{ $id }}-min" class="double-range__label">{{ $min }}</label>
-        <span>{{ __('До') }}</span>
+        <span>-</span>
         <label for="{{ $id }}-max" class="double-range__label">{{ $max }}</label>
     </div>
     <div id="double-range-inputs" class="double-range__inputs">

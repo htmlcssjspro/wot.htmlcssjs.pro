@@ -2,8 +2,179 @@
 
 @use '@/common/flex';
 @use '@/common/text';
+@use '@/svg/svg-symbol';
+
+@use '@/components/wot/button';
+@use '@/components/wot/checkbox';
+@use '@/components/wot/double-range';
+@use '@/components/wot/png';
 
 .filter {
+    @extend %fs-14;
+    background-color: colors.$bg-grey-dark;
+    border: 1px solid colors.$border-grey;
+
+    .flex,
+    .grid {
+        gap: 0.5em;
+    }
+
+    &__wrapper {
+        padding: 1em;
+    }
+
+    &__top {
+        height: 60px;
+
+        background: colors.$bg-grey;
+        box-shadow: colors.$box-shadow-grey;
+
+        &.flex {
+            @extend %flex-sb-c;
+        }
+
+        span {
+            @extend %fs-18;
+            color: colors.$primary;
+            text-shadow: 0px 4px 10px hsla(50, 100%, 50%, 0.13);
+        }
+    }
+
+    form {
+    }
+
+    fieldset {
+        // margin: 1em 0;
+
+        legend {
+            @extend %fs-16;
+            padding: 1em 0 0.5em;
+        }
+    }
+
+    label {
+        padding: 0.5em 0.75em;
+        // color: colors.$checkbox;
+        background-color: hsl(0, 0%, 8%);
+        border: 0.5px solid hsl(0, 0%, 23%);
+        border-radius: 2px;
+    }
+
+    .checkbox {
+        margin: 0;
+
+        input:checked + label {
+            color: colors.$button;
+            background-color: colors.$primary;
+            box-shadow: 0px 4px 10px hsla(50, 100%, 50%, 0.13);
+
+            .svg-symbol {
+                fill: colors.$button;
+            }
+        }
+    }
+
+    .nation {
+        & > .flex {
+            @extend %flex-ai-c;
+            @extend %ff-r-w;
+            // gap: 1em;
+        }
+
+        .dropdown-filter__content.grid {
+            grid-template: repeat(6, auto) / repeat(2, 1fr);
+            grid-auto-flow: column;
+        }
+    }
+
+    .level {
+        & > .flex {
+            @extend %flex-sb-c;
+            @extend %ff-r-w;
+        }
+
+        .checkbox {
+            width: 50px;
+        }
+
+        .dropdown-filter__content.flex {
+            @extend %flex-sb-c;
+
+            .checkbox {
+                flex: 1 0 17%;
+            }
+        }
+    }
+
+    .v-type {
+        & > .flex {
+            @extend %flex-ai-c;
+            @extend %ff-r-w;
+
+            & > :nth-child(3) {
+                margin-right: 30%;
+            }
+        }
+
+        .dropdown-filter__content.flex {
+            @extend %flex-sb-c;
+        }
+    }
+
+    .task-type {
+        & > .flex {
+            @extend %flex-col-fs-fs;
+        }
+        // label {
+        //     width: fit-content;
+        // }
+    }
+
+    .availability {
+        & > .flex {
+            @extend %flex-col-fs-fs;
+        }
+    }
+
+    .cost {
+        legend.flex {
+            @extend %flex-ai-c;
+            gap: 1em;
+        }
+    }
+    .duration {
+        & > .flex {
+            @extend %flex-col-fs-fs;
+        }
+    }
+    .prize {
+        & > .flex {
+            @extend %flex-ff-r-w;
+        }
+
+        label {
+            &.flex {
+                @extend %flex-ai-c;
+                gap: 1em;
+            }
+        }
+    }
+
+    .task-super {
+        & > .flex {
+            @extend %flex-col-fs-fs;
+        }
+
+        .dropdown-filter__content.flex {
+            @extend %flex-ff-cl;
+        }
+    }
+
+    .form__submit {
+        margin-top: 3.2rem;
+        margin-bottom: 3.3rem;
+    }
+
     &__title {
         @extend .t20;
         @extend %fw-500;
@@ -15,25 +186,6 @@
         // &.closed::after {
         //     content: '+';
         // }
-    }
-
-    &__wrapper {
-        margin: 1em 0;
-        gap: 0.5em;
-
-        @at-root .filter__section_nation & {
-            // grid
-        }
-        @at-root .filter__section_level & {
-            @extend %flex-sb-c;
-            flex-flow: row wrap;
-            .checkbox {
-                flex: 1 0 17%;
-            }
-        }
-        @at-root .filter__section_v-type & {
-            @extend %flex-sb-c;
-        }
     }
 
     &__checkbox {

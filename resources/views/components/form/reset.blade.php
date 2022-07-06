@@ -1,3 +1,1 @@
-<x-button {{ $attributes->merge(['type' => 'reset']) }}>
-    {{ $slot }}
-</x-button>
+<x-button {{ $attributes->merge(['type' => 'reset']) }} />

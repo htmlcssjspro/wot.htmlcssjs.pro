@@ -8,8 +8,7 @@
 .footer {
     margin-top: viewport.$gap;
     background-color: colors.$bg-grey;
-    background: url(../../images/bg/sparks-bottom.png) bottom repeat-x colors.$bg-grey;
-    // mix-blend-mode: color-dodge;
+
     @extend %fs-12;
 
     &.flex-item {
@@ -18,5 +17,9 @@
 
     &__wrapper {
         // padding-top: 21px;
+    }
+
+    .navbar__item {
+        padding: 0.2em 0;
     }
 }
