@@ -13,11 +13,12 @@
     },
     "extends": [
         "eslint:recommended"
+        // "plugin:@typescript-eslint/recommended",
+        // "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest", // 2015 6, 2016 7, 2017 8, 2018 9, 2019 10, 2020 11, 2021 12, 2022 13
@@ -26,10 +27,17 @@
             "globalReturn": true,
             "impliedStrict": true,
             "jsx": true
-        }
+        },
+        "project": [
+            "./tsconfig.json"
+        ]
     },
-    "plugins": [],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
     "rules": {
+        // "@typescript-eslint/no-unsafe-assignment": "warn",
         "arrow-spacing": "error",
         "comma-spacing": "error",
         "indent": [

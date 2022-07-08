@@ -1,4 +1,8 @@
-<x-layout.aside {{ $attributes->class(['filter']) }} master="filter">
+<x-layout.aside {{ $attributes->class(['filter'])->merge(['id' => 'aside-filter']) }} master="filter">
+
+    @push('scripts')
+        @tag('resources/assets/js/filter.js')
+    @endpush
 
     @php
         $nations = [
@@ -67,14 +71,14 @@
         ];
     @endphp
 
-    <x-layout.wrapper class="filter__top" flex>
+    <x-layout.wrapper top flex>
         <span>{{ __('Фильтры') }}</span>
         <x-form.reset id="filter-reset" form="filter" value="Сбросить" class="btn_unset" />
     </x-layout.wrapper>
 
     <x-layout.wrapper>
 
-        <x-form id="filter" form-id="filter">
+        <x-form id="filter">
 
             <x-form.fieldset legend="Страна" form="filter" class="nation">
                 <x-layout.flex>
@@ -129,7 +133,7 @@
                     <span>{{ __('Стоимость участия') }}</span>
                     <x-svg-symbol href="#igold" class="igold" />
                 </legend>
-                <x-double-range id="cost" form="filter" min="10" max="1000" step="10" />
+                <x-form.double-range id="cost" form="filter" min="10" max="1000" step="10" />
             </x-form.fieldset>
 
             <x-form.fieldset legend="Продолжительность" form="filter" class="duration">

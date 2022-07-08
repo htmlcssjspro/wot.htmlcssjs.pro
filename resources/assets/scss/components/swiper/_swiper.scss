@@ -1,7 +1,5 @@
-// @use '~swiper/css';
-// @use '~swiper/css/navigation';
-@use 'swiper/css';
-@use 'swiper/css/navigation';
+@use 'swiper-core';
+@use 'swiper-navigation';
 @use '@/config/colors';
 
 .swiper {

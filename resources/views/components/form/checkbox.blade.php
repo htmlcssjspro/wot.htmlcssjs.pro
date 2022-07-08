@@ -1,10 +1,10 @@
-@props(['id', 'name', 'inputValue', 'labelValue', 'flex' => false])
+@props(['id', 'name', 'inputValue', 'checked' => false, 'labelValue', 'flex' => false])
 
 {{-- <div {{ $atributes->class(['checkbox']) }}> --}}
 <div class="checkbox">
 
     <x-form.input-checkbox id="{{ $id }}" name="{{ $name }}" value="{{ $inputValue }}"
-        class="checkbox__input" />
+        class="checkbox__input" :checked="$checked" />
 
     <x-form.label for="{{ $id }}" class="checkbox__label" :flex="$flex">
 

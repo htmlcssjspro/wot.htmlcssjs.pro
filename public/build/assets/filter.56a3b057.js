@@ -1,0 +1,6 @@
+(function(){const o=document.getElementById("filter"),s=document.querySelector("#aside-filters .wrapper_top");function c(){o.querySelectorAll("input[checked]").forEach(t=>{const e=t.nextElementSibling;r(e)})}function i(){s.querySelectorAll(".filter-tag").forEach(t=>{t.remove()})}function r(t){const e=t.cloneNode(!0);e.classList.add("filter-tag"),e.classList.add("flex");const n=document.createElement("button");n.type="button",n.className="btn btn_unset close",n.innerHTML=`
+            <svg width="12" height="12" class="svg-symbol xmark">
+                <use href="https://wot.htmlcssjs.pro/images/sprite.svg#xmark"></use>
+            </svg>
+        `,e.append(n),s.append(e)}function a(t){const e=s.querySelector(`.filter-tag[for=${t}]`);e&&e.remove()}function f(t){const e=t.target,n=e.closest(".filter .checkbox__label");n&&u(n);const l=e.closest(".filters .filter-tag .close");l&&d(l)}function u(t){const e=t.getAttribute("for");t.previousElementSibling.checked?a(e):r(t)}function d(t){const e=t.closest(".filters .filter-tag"),n=e.getAttribute("for"),l=document.getElementById(n);l&&(l.checked=!1),e&&e.remove()}document.body.addEventListener("click",f,!1),o.addEventListener("reset",i),c()})();
+//# sourceMappingURL=filter.56a3b057.js.map

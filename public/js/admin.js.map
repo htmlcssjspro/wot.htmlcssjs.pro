@@ -1,1 +1,0 @@
-{"version":3,"file":"/js/admin.js","mappings":"mBAEAA,QAAQC,IAAI,iB","sources":["webpack://wot.htmlcssjs.pro/./resources/assets/js/admin.js"],"sourcesContent":["'use strict';\r\n\r\nconsole.log('Hello Admin!');\r\n"],"names":["console","log"],"sourceRoot":""}

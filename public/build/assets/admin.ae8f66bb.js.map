@@ -1,0 +1,1 @@
+{"version":3,"file":"admin.ae8f66bb.js","sources":["../../../resources/assets/js/admin.js"],"sourcesContent":["'use strict';\r\n\r\nconsole.log('Hello Admin!');\r\n"],"names":[],"mappings":"AAEA,QAAQ,IAAI,cAAc"}

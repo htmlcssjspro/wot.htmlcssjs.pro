@@ -7,7 +7,7 @@
     min-height: 100vh;
     font-family: '#{font-face.$family}', sans-serif;
     color: colors.$text;
-    background: url(../../images/bg/sparks-bottom.png) bottom repeat-x;
+    background: url(@/../images/bg/sparks-bottom.png) bottom repeat-x;
     // mix-blend-mode: color-dodge;
     background-color: colors.$bg-main;
 

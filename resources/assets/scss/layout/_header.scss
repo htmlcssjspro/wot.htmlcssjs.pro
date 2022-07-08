@@ -18,7 +18,7 @@
 
 .header {
     // background: url(../../images/bg/bg-header.png) bottom repeat-x colors.$bg-main;
-    background: url(../../images/bg/bg-header.png) center/cover no-repeat;
+    background: url(@/../images/bg/bg-header.png) center/cover no-repeat;
 
     .navbar {
         &.flex {

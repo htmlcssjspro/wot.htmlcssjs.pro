@@ -15,9 +15,9 @@ return [
             'entrypoints' => [
                 'ssr' => 'resources/assets/scripts/ssr.ts',
                 'paths' => [
-                    'resources/assets/scripts/main.ts',
                     'resources/assets/js/app.js',
                     'resources/assets/js/admin.js',
+                    'resources/assets/js/filter.js',
                     'resources/assets/scss/app.scss',
                     'resources/assets/scss/admin.scss',
                 ],
@@ -46,7 +46,9 @@ return [
     | https://laravel-vite.dev/configuration/laravel-package.html#aliases
     */
     'aliases' => [
-        '@' => 'resources/assets',
+        '~' => '/resources/assets',
+        '$' => '/resources/assets/js',
+        '@' => '/resources/assets/scss',
     ],
 
     /*

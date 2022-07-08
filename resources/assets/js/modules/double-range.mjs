@@ -54,7 +54,6 @@ export default function doubleRange(id, cb = () => {}) {
 
     const renderVals = () => {
         const {minVal, maxVal} = getMinMax();
-        console.log('minVal, maxVal: ', minVal, maxVal);
 
         $labelMin.textContent = minVal;
         $labelMax.textContent = maxVal;

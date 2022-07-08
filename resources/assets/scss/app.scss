@@ -1,17 +1,17 @@
 //* Common
-@use 'common/normalize';
-@use 'layout';
+@use '@/common/normalize';
+@use '@/layout';
 
-@use 'components/swiper';
-@use 'components/wot/auth';
+@use '@/components/swiper/swiper';
+@use '@/components/wot/auth';
 
 //* Pages
-@use 'pages/posts';
+@use '@/pages/posts';
 
-@use 'pages/home';
+@use '@/pages/home';
 // @use 'pages/admin';
-@use 'pages/user';
-@use 'pages/raiting';
+@use '@/pages/user';
+@use '@/pages/raiting';
 
 h1,
 h2,

@@ -1,11 +1,12 @@
 @props([
     'required' => false,
     'autofocus' => false,
+    'checked' => false,
     'disabled' => false,
 ])
 
-<input {{ $attributes }} {{ $required ? 'required' : '' }}
-    {{ $autofocus ? 'autofocus' : '' }} {{ $disabled ? 'disabled' : '' }} />
+<input {{ $attributes }} {{ $required ? 'required' : '' }} {{ $autofocus ? 'autofocus' : '' }}
+    {{ $checked ? 'checked' : '' }} {{ $disabled ? 'disabled' : '' }} />
 
 
 {{-- Example

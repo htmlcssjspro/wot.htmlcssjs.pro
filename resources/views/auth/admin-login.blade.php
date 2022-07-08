@@ -1,6 +1,6 @@
 <x-layouts.clean meta-title="Login" meta-description="Login">
     <x-layout.main wrapper>
-        <x-form action="{{ route('admin.login') }}" class="form_auth">
+        <x-form action="{{ route('admin.login') }}" class="auth-form">
 
             <x-form.errors class="" :errors="$errors" />
 
